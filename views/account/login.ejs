@@ -1,0 +1,15 @@
+<h2>Login</h2>
+<%- include("_data_field_message") %> 
+
+<form method="POST" action="/login">
+    <input type="text" name="emailUsername" placeholder="Email or Username">
+    <br>
+    <input type="password" name="password" placeholder="Password">
+    <br>
+    <input type="submit" value="Login">
+</form>
+<br>
+<a href="/recover">Forgot Password?</a>
+<br>
+<a href="/register">Register</a>
+<br>

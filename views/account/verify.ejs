@@ -1,0 +1,8 @@
+<h1>Validate Email</h1>
+
+<%- include("_data_field_message") %> 
+
+<form method="POST" action="/verify">
+    <input type="text" name="otp" placeholder="Emailed OTP" value="<%= otp %>" required>
+    <input type="submit" value="Verify">
+</form>

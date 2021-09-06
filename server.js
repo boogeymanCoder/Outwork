@@ -1,0 +1,75 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
+const express = require('express');
+const app = express();
+const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
+const methodOverride = require('method-override');
+
+const indexRouter = require('./routes/index');
+const profileRouter = require('./routes/profile');
+const initializePassport = require('./routes/passport-config');
+const Account = require('./models/account');
+
+initializePassport(
+    passport,
+    async (emailUsername) => {
+        return await Account.findOne({
+            $or: [
+                {email: emailUsername},
+                {username: emailUsername}
+            ]
+        });
+    }, async (id) => {
+        return await Account.findById(id);
+    }
+);
+
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+app.set('layout', 'layouts/layout');
+app.use(expressLayouts);
+app.use(express.static('public'));
+app.use(express.urlencoded({extended: false}));
+app.use(flash());
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride('_method'));
+
+
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
+const db = mongoose.connection;
+db.on('error', (err) => {
+    console.error(err);
+});
+db.once('open', () => {
+    console.log('Connected!');
+});
+
+app.use('/profile', profileRouter);
+app.use('/', indexRouter);
+
+
+// Handle 404
+app.use(function(req, res) {
+    res.status(400);
+    res.render('404');
+});
+   
+// Handle 500
+app.use(function(error, req, res, next) {
+    res.status(500);
+    res.render('500');
+});
+
+app.listen(process.env.PORT || 3000);

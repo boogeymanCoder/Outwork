@@ -1,0 +1,8 @@
+<h1>Recovery OTP</h1>
+
+<%- include("_data_field_message") %> 
+
+<form method="POST" action="/recover/<%= id %>/otp">
+    <input type="text" name="otp" placeholder="OTP" value="<%= otp %>" required>
+    <input type="submit" value="Send New Password">
+</form>

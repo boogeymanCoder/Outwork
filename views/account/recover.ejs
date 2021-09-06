@@ -1,0 +1,8 @@
+<h1>Recover Account</h1>
+
+<%- include("_data_field_message") %> 
+
+<form method="POST" action="/recover">
+    <input type="email" name="email" placeholder="Registered Email" value="<%= email %>" required>
+    <input type="submit" value="Send OTP">
+</form>

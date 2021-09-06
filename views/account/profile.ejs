@@ -1,0 +1,55 @@
+<h2>Profile</h2>
+<%- include("_data_field_message") %> 
+<form method="POST" action="/profile/update">
+    <label for="username">Username: </label><span><%= account.username %></span>
+    <br>
+    <label for="email">Email:</label>
+    <span><%= account.email %></span>
+    <br>
+    <label for="firstname">Firstname:</label>
+    <br>
+    <input type="text" name="firstname" placeholder="Firstname" value="<%= account.firstname %>">
+    <br>
+    <label for="middlename">Middlename:</label>
+    <br>
+    <input type="text" name="middlename" placeholder="Middlename" value="<%= account.middlename %>">
+    <br>
+    <label for="lastname">Lastname:</label>
+    <br>
+    <input type="text" name="lastname" placeholder="Lastname" value="<%= account.lastname %>">
+    <br>
+    <label for="number">Mobile Number:</label>
+    <br>
+    <input type="text" name="number" placeholder="Mobile Number" value="<%= account.number %>">
+    <br>
+    <label for="addressLine1">Street Address, P.O Box, Company Name, C/O:</label>
+    <br>
+    <input type="text" name="addressLine1" placeholder="Street Address, P.O Box, Company Name, C/O" value="<%= account.addressLine1 %>">
+    <br>
+    <label for="addressLine2">Apartment, Suite, Unit, Building, Floor, etc.:</label>
+    <br>
+    <input type="text" name="addressLine2" placeholder="Apartment, Suite, Unit, Building, Floor, etc." value="<%= account.addressLine2 %>">
+    <br>
+    <label for="city">City:</label>
+    <br>
+    <input type="text" name="city" placeholder="City" value="<%= account.city %>">
+    <br>
+    <label for="stateProvinceRegion">State/Province/Region:</label>
+    <br>
+    <input type="text" name="stateProvinceRegion" placeholder="State/Province/Region" value="<%= account.stateProvinceRegion %>">
+    <br>
+    <label for="zipPostalCode">Zip/Postal Code:</label>
+    <br>
+    <input type="text" name="zipPostalCode" placeholder="Zip/Postal Code" value="<%= account.zipPostalCode %>">
+    <br>
+    <label for="country">Country:</label>
+    <br>
+    <input type="text" name="country" placeholder="Country" value="<%= account.country %>">
+    <br>
+    <label>Change Password:</label>
+    <br>
+    <input type="password" name="newpass1" placeholder="New Password">
+    <input type="password" name="newpass2" placeholder="Confirm New Password">
+    <br>
+    <input type="submit" value="Update">
+</form>
