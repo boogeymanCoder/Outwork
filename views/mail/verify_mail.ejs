@@ -1,5 +1,9 @@
 <%- include('_mail_header'); %>
-    <h1> Verification OTP: <%= otp %> </h2>
-    <br>
-    <a href="<%= link %> "><button>Verify</button></a>
+    <div class="container">
+        <h2 class="text-center text-secondary">Your Outwork Verification OTP is:</h2>
+        <br>
+        <h3><%= otp %></h3>
+        <br>
+        <a href="<%= link %> "><button class="btn btn-dark float-right">Verify</button></a>
+    </div>
 <%- include('_mail_footer'); %> 

@@ -1,8 +1,20 @@
-<h1>Recovery OTP</h1>
+<div class="container-sm">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 mt-5 pt-5">
+            <h1 class="text-center">Recovery OTP</h1>
+            <%- include("_data_field_message") %> 
 
-<%- include("_data_field_message") %> 
-
-<form method="POST" action="/recover/<%= id %>/otp">
-    <input type="text" name="otp" placeholder="OTP" value="<%= otp %>" required>
-    <input type="submit" value="Send New Password">
-</form>
+            <form method="POST" action="/recover/<%= id %>/otp" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="otp">Recovery OTP:</label>
+                    <input  class="form-control mb-2" type="text" name="otp" placeholder="Recovery OTP" value="<%= otp %>" required>
+                    <div class="valid-feedback"></div>
+                    <div class="invalid-feedback">Please enter your Verification OTP.</div>
+                </div>
+                <input class="btn btn-dark float-right" type="submit" value="Send New Password">
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>

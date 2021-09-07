@@ -1,26 +1,77 @@
-
-<input type="username" name="username" placeholder="Username" value="<%= account.username %>">
-<br>
-<input type="text" name="firstname" placeholder="Firstname" value="<%= account.firstname %>">
-<br>
-<input type="text" name="middlename" placeholder="Middlename" value="<%= account.middlename %>">
-<br>
-<input type="text" name="lastname" placeholder="Lastname" value="<%= account.lastname %>">
-<br>
-<input type="text" name="number" placeholder="Mobile Number" value="<%= account.number %>">
-<br>
-<input type="text" name="addressLine1" placeholder="Street Address, P.O Box, Company Name, C/O" value="<%= account.addressLine1 %>">
-<br>
-<input type="text" name="addressLine2" placeholder="Apartment, Suite, Unit, Building, Floor, etc." value="<%= account.addressLine2 %>">
-<br>
-<input type="text" name="city" placeholder="City" value="<%= account.city %>">
-<br>
-<input type="text" name="stateProvinceRegion" placeholder="State/Province/Region" value="<%= account.stateProvinceRegion %>">
-<br>
-<input type="text" name="zipPostalCode" placeholder="Zip/Postal Code" value="<%= account.zipPostalCode %>">
-<br>
-<input type="text" name="country" placeholder="Country" value="<%= account.country %>">
-<br>
-<input type="email" name="email" placeholder="Email" value="<%= account.email %>">
-<br>
-<input type="password" name="password" placeholder="Password" value="<%= account.password %>">
+<div class="form-group">
+    <label for="username">Username:</label>
+    <input  class="form-control mb-2" type="text" name="username" placeholder="Username" value="<%= account.username %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your username.</div>
+</div>
+<div class="form-group">
+    <label for="firstname">Firstname:</label>
+    <input  class="form-control mb-2" type="text" name="firstname" placeholder="Firstname" value="<%= account.firstname %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your firstname.</div>
+</div>
+<div class="form-group">
+    <label for="middlename">Middlename: (Optional)</label>
+    <input  class="form-control mb-2" type="text" name="middlename" placeholder="Middlename" value="<%= account.middlename %>">
+    <div class="valid-feedback"></div>
+</div>
+<div class="form-group">
+    <label for="lastname">Lastname:</label>
+    <input  class="form-control mb-2" type="text" name="lastname" placeholder="Lastname" value="<%= account.lastname %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your lastname.</div>
+</div>
+<div class="form-group">
+    <label for="number">Mobile Number:</label>
+    <input  class="form-control mb-2" type="text" name="number" placeholder="Mobile Number" value="<%= account.number %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your number.</div>
+</div>
+<div class="form-group">
+    <label for="addressLine1">Address:</label>
+    <input  class="form-control mb-2" type="text" name="addressLine1" placeholder="Street" value="<%= account.addressLine1 %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your address.</div>
+</div>
+<div class="form-group">
+    <label for="addressLine2">Street:</label>
+    <input  class="form-control mb-2" type="text" name="addressLine2" placeholder="Street" value="<%= account.addressLine2 %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your street.</div>
+</div>
+<div class="form-group">
+    <label for="city">City:</label>
+    <input  class="form-control mb-2" type="text" name="city" placeholder="City" value="<%= account.city %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your city.</div>
+</div>
+<div class="form-group">
+    <label for="stateProvinceRegion">State/Province/Region:</label>
+    <input  class="form-control mb-2" type="text" name="stateProvinceRegion" placeholder="State/Province/Region" value="<%= account.stateProvinceRegion %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your state, province, or region.</div>
+</div>
+<div class="form-group">
+    <label for="zipPostalCode">Zip/Postal Code:</label>
+    <input  class="form-control mb-2" type="text" name="zipPostalCode" placeholder="Zip/Postal Code" value="<%= account.zipPostalCode %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your zip or postal code.</div>
+</div>
+<div class="form-group">
+    <label for="country">Country:</label>
+    <input  class="form-control mb-2" type="text" name="country" placeholder="Country" value="<%= account.country %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your country.</div>
+</div>
+<div class="form-group">
+    <label for="email">Email:</label>
+    <input  class="form-control mb-2" type="email" name="email" placeholder="Email" value="<%= account.email %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your email.</div>
+</div>
+<div class="form-group">
+    <label for="password">Password:</label>
+    <input  class="form-control mb-2" type="password" name="password" placeholder="Password" value="<%= account.password %>" required>
+    <div class="valid-feedback"></div>
+    <div class="invalid-feedback">Please enter your password.</div>
+</div>
