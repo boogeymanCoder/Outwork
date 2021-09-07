@@ -15,7 +15,7 @@ create a file with filename ".env" with content: <br/>
 
 DATABASE_URL = mongodb://localhost/outwork <br/>
 SESSION_SECRET = // 10 character long string for session authentication <br/>
-USER = // email, enable less secure if using gmail here:
+USER = // email, enable less secure if using gmail here: <br />
         https://www.google.com/settings/security/lesssecureapps <br/>
         https://accounts.google.com/DisplayUnlockCaptcha<br />
 PASS =  // email password <br/>
