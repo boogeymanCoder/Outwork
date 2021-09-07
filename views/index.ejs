@@ -1,46 +1,73 @@
-
 <div class="container-sm p-5">
-    <form action="/logout?_method=DELETE" method="POST">
-        <input class="btn btn-secondary float-right m-2" type="submit" value="Logout">
-    </form>
-    <div class="container-fluid m-3 p-3">
-      <h1 class="text-center text-secondary"> Welcome to Outwork <%= name %>! </h1>
-    </div>
-    <div id="demo" class="carousel slide" data-ride="carousel">
-        <ul class="carousel-indicators">
-          <li data-target="#demo" data-slide-to="0" class="active"></li>
-          <li data-target="#demo" data-slide-to="1"></li>
-          <li data-target="#demo" data-slide-to="2"></li>
-        </ul>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Buildings" width="1100" height="500">
-            <div class="carousel-caption">
-              <h3>Our Mission</h3>
-              <p>With our innovative and insightful technology, we strive to enhance our users’ every day experiences. Founded in 2021, our incredible team of engineers, programmers, designers and marketers have worked tirelessly to bring Outwork to the forefront of the industry. We will continue to work relentlessly to become the technological standard, providing big picture insights and solutions for job seekers. Get in touch to learn more.</p>
-            </div>   
-          </div>
-          <div class="carousel-item">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=702&q=80" alt="Laptop" width="1100" height="500">
-            <div class="carousel-caption">
-              <h3>Our Technology</h3>
-              <p>Smart solutions are at the core of all that we do at Outwork. Our main goal is finding smart ways of using technology that will help build a better tomorrow for everyone, everywhere.</p>
-            </div>   
-          </div>
-          <div class="carousel-item">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=872&q=80" alt="Work" width="1100" height="500">
-            <div class="carousel-caption">
-              <h3>New York</h3>
-              <quote>Well done is better than well said
-                Benjamin Franklin</quote>
-            </div>   
-          </div>
+  <form action="/logout?_method=DELETE" method="POST">
+    <input class="btn btn-secondary float-right m-2" type="submit" value="Logout">
+  </form>
+  <div class="container-fluid m-3 p-3">
+    <h1 class="text-center text-secondary"> Welcome to Outwork <%= name %>! </h1>
+  </div>
+  <div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="image-fluid"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+          alt="Buildings" width="1100" height="500">
+        <div class="carousel-caption">
+          <h3>Our Mission</h3>
+          <small>With our innovative and insightful technology, we strive to enhance our users’ every day experiences.
+            Founded in 2021, our incredible team of engineers, programmers, designers and marketers have worked
+            tirelessly to bring Outwork to the forefront of the industry. We will continue to work relentlessly to
+            become the technological standard, providing big picture insights and solutions for job seekers. Get in
+            touch to learn more.</small>
         </div>
-        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </a>
       </div>
+      <div class="carousel-item">
+        <img class="image-fluid"
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=702&q=80"
+          alt="Laptop" width="1100" height="500">
+        <div class="carousel-caption">
+          <h3>Our Technology</h3>
+          <p>Smart solutions are at the core of all that we do at Outwork. Our main goal is finding smart ways of using
+            technology that will help build a better tomorrow for everyone, everywhere.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="image-fluid"
+          src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=872&q=80"
+          alt="Work" width="1100" height="500">
+        <div class="carousel-caption">
+          <h3>Motivation</h3>
+          <q>Well done is better than well said.</q>
+          <p class="text-right">-Benjamin Franklin</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+  <div class="container p-5">
+    <h2>Our Mission</h2>
+    <p class="text-justify">With our innovative and insightful technology, we strive to enhance our users’ every day
+      experiences. Founded in 2021, our incredible team of engineers, programmers, designers and marketers have worked
+      tirelessly to bring Outwork to the forefront of the industry. We will continue to work relentlessly to become the
+      technological standard, providing big picture insights and solutions for job seekers. Get in touch to learn more.
+    </p>
+
+    <h2>Our Technology</h2>
+    <p class="text-justify">Smart solutions are at the core of all that we do at Outwork. Our main goal is finding smart
+      ways of using technology that will help build a better tomorrow for everyone, everywhere.</p>
+
+
+    <h2>Motivation</h2>
+    <q>Well done is better than well said.</q>
+    <p class="text-right">-Benjamin Franklin</p>
+  </div>
 </div>
