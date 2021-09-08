@@ -2,88 +2,90 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6 pt-4">
-            <h2>Profile</h2>
+            <h2 class="animate__animated animate__bounceInDown">Profile</h2>
             <%- include("_data_field_message") %> 
             <form method="POST" action="/profile/update" class="needs-validation" novalidate>
-                <label for="username">Username:</label>
-                <span class="text-secondary float-right"> 
-                    <strong>
-                        <%= account.username %>
-                    </strong>
-                </span>
-                <br>
-                <label for="email">Email:</label>
-                <span class="text-secondary float-right">
-                    <strong>
-                        <%= account.email %>
-                    </strong>
-                </span>
-                <br>
-                <div class="form-group">
+                <div class="animate__animated animate__fadeInDown">
+                    <label for="username">Username:</label>
+                    <span class="text-secondary float-end"> 
+                        <strong>
+                            <%= account.username %>
+                        </strong>
+                    </span>
+                     <br>
+                    <label for="email">Email:</label>
+                    <span class="text-secondary float-end">
+                        <strong>
+                            <%= account.email %>
+                        </strong>
+                    </span>
+                    <br>
+                </div>
+                <div class="form-group animate__animated animate__fadeInLeft">
                     <label for="firstname">Firstname:</label>
                     <input  class="form-control mb-2" type="text" name="firstname" placeholder="Firstname" value="<%= account.firstname %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your firstname.</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInRight">
                     <label for="middlename">Middlename:</label>
                     <input  class="form-control mb-2" type="text" name="middlename" placeholder="Middlename" value="<%= account.middlename %>">
                     <div class="valid-feedback"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInLeft">
                     <label for="lastname">Lastname:</label>
                     <input  class="form-control mb-2" type="text" name="lastname" placeholder="Lastname" value="<%= account.lastname %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your lastname.</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInRight">
                     <label for="number">Mobile Number:</label>
                     <input  class="form-control mb-2" type="text" name="number" placeholder="Mobile Number" value="<%= account.number %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your number.</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInLeft">
                     <label for="addressLine1">Address:</label>
                     <input  class="form-control mb-2" type="text" name="addressLine1" placeholder="Street" value="<%= account.addressLine1 %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your address.</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInRight">
                     <label for="addressLine2">Street:</label>
                     <input  class="form-control mb-2" type="text" name="addressLine2" placeholder="Street" value="<%= account.addressLine2 %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your street.</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInLeft">
                     <label for="city">City:</label>
                     <input  class="form-control mb-2" type="text" name="city" placeholder="City" value="<%= account.city %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your city.</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInRight">
                     <label for="stateProvinceRegion">State/Province/Region:</label>
                     <input  class="form-control mb-2" type="text" name="stateProvinceRegion" placeholder="State/Province/Region" value="<%= account.stateProvinceRegion %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your state, province, or region.</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInLeft">
                     <label for="zipPostalCode">Zip/Postal Code:</label>
                     <input  class="form-control mb-2" type="text" name="zipPostalCode" placeholder="Zip/Postal Code" value="<%= account.zipPostalCode %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your zip or postal code.</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInRight">
                     <label for="country">Country:</label>
                     <input  class="form-control mb-2" type="text" name="country" placeholder="Country" value="<%= account.country %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your country.</div>
                 </div>
-                <div class="form-group">
+                <div class="form-group animate__animated animate__fadeInLeft">
                     <label>New Password:</label>
                     <input class="form-control mb-2" type="text" name="newpass1" placeholder="New Password">
                     <input  class="form-control mb-2" type="text" name="newpass2" placeholder="Confirm New Password">
                 </div>
-                <input type="submit" class="btn btn-dark float-right" value="Update">
+                <input type="submit" class="btn btn-dark float-end" value="Update">
             </form>
         </div>
         <div class="col-lg-3"></div>

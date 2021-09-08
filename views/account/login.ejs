@@ -2,17 +2,19 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6 mt-5 pt-5">
-            <h1 class="text-center">Login</h1>
-            <p class="text-center">
-                <strong>New to this site?
-                    <a href="/register" class="text-secondary">Register</a>
-                </strong>
-            </p>
+            <div class="container-fluid animate__animated animate__bounceInDown">
+                <h1 class="text-center">Login</h1>
+                <p class="text-center animate__animated animate__rubberBand animate__delay-2s">
+                    <strong>New to this site?
+                    </strong>
+                    <span><a href="/register" class="text-secondary">Register</a></span>
+                </p>
+            </div>
             <%- include("_data_field_message") %>
-            <form method="POST" action="/login" class="needs-validation" novalidate>
+            <form method="POST" action="/login" class="needs-validation  animate__animated animate__fadeInLeft" novalidate>
                 <div class="form-group">
                     <label for="emailUsername">Email or Username:</label>
-                    <input  class="form-control mb-2"type="text" name="emailUsername" placeholder="Email or Username" required>
+                    <input  class="form-control mb-2"type="text" id="my-element" name="emailUsername" placeholder="Email or Username" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter email or username.</div>
                 </div>
@@ -24,7 +26,7 @@
                 </div>
                 <a href="/recover" class="text-secondary underline">Forgot passsword?</a>
                 <div class="form-group">
-                    <input class="btn btn-dark float-right" type="submit" value="Login">
+                    <input class="btn btn-dark float-end" type="submit" value="Login">
                 </div>
             </form>
         </div>
