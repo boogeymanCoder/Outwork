@@ -2,17 +2,19 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6 pt-4">
-            <h1 class="text-center">Register</h1>
-            <p class="text-center">
-                <strong>Already a member?
-                    <a href="/login" class="text-secondary">Log In</a>
-                </strong>
-            </p>
+            <div class="container-fluid animate__animated animate__bounceInDown">
+                <h1 class="text-center ">Register</h1>
+                <p class="text-center animate__animated animate__rubberBand animate__delay-2s">
+                    <strong>Already a member?
+                        <a href="/login" class="text-secondary">Log In</a>
+                    </strong>
+                </p>
+            </div>
             <form method="POST" action="register" class="needs-validation" novalidate>
                 <%- include("_data_field_message") %>
                 <%- include("_data_fields") %>
                 <br>
-                <input type="submit" class="btn btn-dark float-end" value="Register">
+                <input type="submit" class="btn btn-dark float-end animate__animated animate__rubberBand" value="Register">
             </form>
         </div>
         <div class="col-lg-3"></div>
