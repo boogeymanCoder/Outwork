@@ -10,12 +10,10 @@ function initialize(passport, getUserByEmailUsername, getUserById) {
         }
 
         try {
-            if (await bcrypt.compare(password, account.password)) {
-                if (account.verified) {
-                    return done(null, account);
-                }
-
+            if (account.verified == false) {
                 return done(null, false, { message: 'Please verify your email', });
+            } else if (await bcrypt.compare(password, account.password)) {
+                return done(null, account);
             } else {
                 return done(null, false, { message: 'Password Incorrect' });
             }
