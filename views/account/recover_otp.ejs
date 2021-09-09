@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6 mt-5 pt-5">
-            <h1 class="text-center">Recovery OTP</h1>
+            <h1 class="text-center animate__animated animate__bounceInDown">Recovery OTP</h1>
             <%- include("_data_field_message") %> 
 
-            <form method="POST" action="/recover/<%= id %>/otp" class="needs-validation" novalidate>
+            <form method="POST" action="/recover/<%= id %>/otp" class="needs-validation animate__animated animate__fadeInLeft" novalidate>
                 <div class="form-group">
                     <label for="otp">Recovery OTP:</label>
                     <input  class="form-control mb-2" type="text" name="otp" placeholder="Recovery OTP" value="<%= otp %>" required>
