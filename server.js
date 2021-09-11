@@ -13,6 +13,8 @@ const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
 const profileRouter = require('./routes/profile');
+const publicRouter = require('./routes/public');
+const jobRouter = require('./routes/job');
 const initializePassport = require('./routes/passport-config');
 const Account = require('./models/account');
 
@@ -56,6 +58,8 @@ db.once('open', () => {
     console.log('Connected!');
 });
 
+app.use('/job', jobRouter);
+app.use('/public', publicRouter);
 app.use('/profile', profileRouter);
 app.use('/', indexRouter);
 
