@@ -21,14 +21,14 @@ const Account = require('./models/account');
 initializePassport(
     passport,
     async (emailUsername) => {
-        return await Account.findOne({
+        return Account.findOne({
             $or: [
                 {email: emailUsername},
                 {username: emailUsername}
             ]
         });
     }, async (id) => {
-        return await Account.findById(id);
+        return Account.findById(id);
     }
 );
 
