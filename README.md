@@ -15,10 +15,7 @@ create a file with filename ".env" with content: <br/>
 
 DATABASE_URL = mongodb://localhost/outwork <br/>
 SESSION_SECRET = // 10 character long string for session authentication <br/>
-USER = // email, enable less secure if using gmail here: <br />
-        https://www.google.com/settings/security/lesssecureapps <br/>
-        https://accounts.google.com/DisplayUnlockCaptcha<br />
-PASS =  // email password <br/>
+USER, CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN of google OAuth 2.0 credential https://console.cloud.google.com/apis/credentials<br/>
 
 remember to not ".env" from configure .gitignore file to avoid security problems <br/>
 
