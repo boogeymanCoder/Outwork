@@ -3,11 +3,11 @@ A one time request hiring site
 
 To run on local:<br/>
 
-step 1 (Prepair requirements):<br/>
+Step 1 (Prepair requirements):<br/>
 MongoDb must be installed, link: https://www.mongodb.com/try/download/community <br/>
 Node.js must be installed, link:  https://nodejs.org/en/download/ <br/>
 
-step 2 (Setup terminal commmands): <br/>
+Step 2 (Setup terminal commmands): <br/>
 on terminal change directory to project root directory <br/>
 run "npm install" without quotes to install project dependencies <br/>
 
