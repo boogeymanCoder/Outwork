@@ -9,7 +9,7 @@ router.post('/new', async (req, res) => {
         location: req.body.location,
         details: req.body.details,
         skills: req.body.skills,
-        employer: req.user.id,
+        employer: req.user.username,
         postDate: new Date()
     });
 
