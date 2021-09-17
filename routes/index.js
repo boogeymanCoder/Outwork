@@ -8,6 +8,7 @@ const Account = require('../models/account');
 const mail = require('./mail');
 const Otp = require('../models/otp');
 const auth = require('./auth');
+const Job = require('../models/job');
 
 async function recoveryMailer(account, req){
     const now = new Date();
@@ -31,8 +32,9 @@ async function recoveryMailer(account, req){
     await otp.save();
 }
 
-router.get('/', auth.checkIfAuthenticated, (req, res) => {
-    res.render('index', { name: req.user.username });
+router.get('/', auth.checkIfAuthenticated, async (req, res) => {
+    const jobs = await Job.find({});
+    res.render('index', { jobs: jobs });
 });
 
 router.get('/login', auth.checkIfNotAuthenticated, (req, res) => {
