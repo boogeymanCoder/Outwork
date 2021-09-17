@@ -15,7 +15,7 @@ self.addEventListener('active', e => {
                 })
             );
         })
-    );
+    ).then(self.skipWaiting());
 });
 
 self.addEventListener('fetch', e => {
