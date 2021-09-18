@@ -5,13 +5,13 @@ const Account = require('../models/account');
 const Otp = require('../models/otp');
 const auth = require('./auth');
 
-router.get('/verify', auth.checkIfNotAuthenticated, async (req, res) => {
-    res.render('account/verify', {
+router.get('/', auth.checkIfNotAuthenticated, async (req, res) => {
+    res.render('verify/verify', {
         otp: ''
     });
 });
 
-router.post('/verify', auth.checkIfNotAuthenticated, async (req, res) => {
+router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
     const otpPin = req.body.otp;
 
     const otp = await Otp.findOne({
@@ -20,7 +20,7 @@ router.post('/verify', auth.checkIfNotAuthenticated, async (req, res) => {
     });
     if(otp == null) {
         req.flash('error', 'Invalid OTP')
-        return res.render('account/verify', {
+        return res.render('verify/verify', {
             otp: otpPin
         });
     }

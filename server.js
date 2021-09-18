@@ -15,6 +15,10 @@ const indexRouter = require('./routes/index');
 const profileRouter = require('./routes/profile');
 const publicRouter = require('./routes/public');
 const jobRouter = require('./routes/job');
+const loginRouter = require('./routes/login');
+const registerRouter = require('./routes/register');
+const verifyRouter = require('./routes/verify');
+const recoverRouter = require('./routes/recover');
 const initializePassport = require('./routes/passport-config');
 const Account = require('./models/account');
 
@@ -58,6 +62,10 @@ db.once('open', () => {
     console.log('Connected!');
 });
 
+app.use('/recover', recoverRouter);
+app.use('/verify', verifyRouter);
+app.use('/register', registerRouter);
+app.use('/login', loginRouter);
 app.use('/job', jobRouter);
 app.use('/public', publicRouter);
 app.use('/profile', profileRouter);

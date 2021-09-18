@@ -10,11 +10,11 @@ const Otp = require('../models/otp');
 const auth = require('./auth');
 const Job = require('../models/job');
 
-router.get('/register', auth.checkIfNotAuthenticated, (req, res) => {
-    res.render('account/register',  { account: new Account() });
+router.get('/', auth.checkIfNotAuthenticated, (req, res) => {
+    res.render('register/register',  { account: new Account() });
 });
 
-router.post('/register', auth.checkIfNotAuthenticated, async (req, res) => {
+router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
     const account = new Account({
         username: req.body.username,
         firstname: req.body.firstname,
@@ -33,14 +33,14 @@ router.post('/register', auth.checkIfNotAuthenticated, async (req, res) => {
 
     if (await Account.findOne({ username: req.body.username }) != null ) {
         req.flash('error', 'Username already exists');
-        return res.render('account/register',  { 
+        return res.render('register/register',  { 
             account: account
         });
     }
 
     if (await Account.findOne({ email: req.body.email }) != null ) {
         req.flash('error', 'Email already exists');
-        return res.render('account/register',  { 
+        return res.render('register/register',  { 
             account: account
         });
     }
@@ -68,7 +68,7 @@ router.post('/register', auth.checkIfNotAuthenticated, async (req, res) => {
         } 
 
         req.flash('error', `${ errorMessage }` );
-        return res.render('account/register',  { 
+        return res.render('register/register',  { 
             account: account
         });
     });

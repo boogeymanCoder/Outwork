@@ -30,17 +30,17 @@ async function recoveryMailer(account, req){
     await otp.save();
 }
 
-router.get('/recover', auth.checkIfNotAuthenticated, (req, res) => {
-    res.render('account/recover', {
+router.get('/', auth.checkIfNotAuthenticated, (req, res) => {
+    res.render('recover/recover', {
         email: ''
     });
 });
 
-router.post('/recover', auth.checkIfNotAuthenticated, async (req, res) => {
+router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
     const account = await Account.findOne({ email: req.body.email });
     if (account == null) {
         req.flash('error', 'Email does not exist');
-        return res.render('account/recover', {
+        return res.render('recover/recover', {
             email: req.body.email
         });
     }
@@ -51,14 +51,14 @@ router.post('/recover', auth.checkIfNotAuthenticated, async (req, res) => {
     res.redirect(`/recover/${ account.id }/otp`);
 });
 
-router.get('/recover/:id/otp', auth.checkIfNotAuthenticated, (req, res) => {
-    res.render('account/recover_otp', {
+router.get('/:id/otp', auth.checkIfNotAuthenticated, (req, res) => {
+    res.render('recover/recover_otp', {
         otp: '',
         id: req.params.id
     });
 });
 
-router.post('/recover/:id/otp', auth.checkIfNotAuthenticated, async (req, res) => {
+router.post('/:id/otp', auth.checkIfNotAuthenticated, async (req, res) => {
     const account = await Account.findById(req.params.id).catch(err => {
         req.flash('error', 'Invalid URL');
     });
@@ -72,7 +72,7 @@ router.post('/recover/:id/otp', auth.checkIfNotAuthenticated, async (req, res) =
     });
     if (otp == null) {
         req.flash('error', 'Invalid OTP')
-        return res.render('account/recover_otp', {
+        return res.render('recover/recover_otp', {
             otp: req.body.otp,
             id: req.params.id
         });
@@ -84,7 +84,7 @@ router.post('/recover/:id/otp', auth.checkIfNotAuthenticated, async (req, res) =
             await recoveryMailer(account, req);
 
             req.flash('error', 'OTP Expired, sending new recovery OTP');
-            return res.render('account/recover_otp', {
+            return res.render('recover/recover_otp', {
                 otp: req.body.otp,
                 id: req.params.id
             });

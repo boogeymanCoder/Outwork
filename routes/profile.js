@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const auth = require('./auth');
 
 router.get('/', auth.checkIfAuthenticated, (req, res) => {
-    res.render('account/profile.ejs', { account: req.user });
+    res.render('profile/profile.ejs', { account: req.user });
 });
 
 router.post('/update', auth.checkIfAuthenticated, async (req, res) => {
@@ -42,5 +42,6 @@ router.post('/update', auth.checkIfAuthenticated, async (req, res) => {
 
     res.redirect('./');
 });
+
 
 module.exports = router;
