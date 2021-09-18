@@ -1,6 +1,6 @@
 {
     "name": "OutWork",
-    "short_name": "OutW",
+    "short_name": "OutWork",
     "description": "Progressive Web App that lists games submitted to the A-Frame category in the js13kGames 2017 competition.",
     "icons": [
       {
@@ -36,7 +36,7 @@
       }
     ],
     "start_url": "/",
-    "display": "fullscreen",
+    "display": "standalone",
     "theme_color": "#000000",
     "background_color": "#FFFFFF",
     "prefer_related_applications": false
