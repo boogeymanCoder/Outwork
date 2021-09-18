@@ -1,7 +1,7 @@
 {
     "name": "OutWork",
     "short_name": "OutWork",
-    "description": "Progressive Web App that lists games submitted to the A-Frame category in the js13kGames 2017 competition.",
+    "description": "Progressive Web App that acts as a communication platform for part time tasks.",
     "icons": [
       {
         "src": "icons/outwork.png",
