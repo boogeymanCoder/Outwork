@@ -1,9 +1,6 @@
-<%- include('_mail_header'); %> 
-    <div class="container">
-        <h2 class="text-center text-secondary">Your Outwork Account's New Password is:</h2>
-        <br>
-        <code><%= pass %></code>
-        <br>
-        <a href="<%= link %> "><button class="btn btn-dark float-end">Login</button></a>
-    </div>
+<%- include('_mail_header'); %>
+    <h2>Your Outwork Account's New Password is:</h2>
+    <h2><%= pass %></h2>
+    <br>
+    <p>Login <a href="<%= link %>">here.</a></p>
 <%- include('_mail_footer'); %> 

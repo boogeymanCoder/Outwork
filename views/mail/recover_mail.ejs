@@ -1,11 +1,6 @@
-<%- include('_mail_header'); %> 
-<div class="container">
-    <h2 class="text-center text-secondary">Your Outwork Recovery OTP is:</h2>
+<%- include('_mail_header'); %>
+    <h2>Your Outwork Recovery OTP is:</h2>
+    <h2><%= otp %></h2>
     <br>
-    <code><%= otp %></code>
-    <br>
-    <p class="text-center">(Expires in 15 minutes)</p>
-    <br>
-    <a href="<%= link %> "><button class="btn btn-dark float-end">Recover</button></a>
-</div>
+    <p>To complete your recovery, please submit OTP <a href="<%= link %>">here.</a></p>
 <%- include('_mail_footer'); %> 
