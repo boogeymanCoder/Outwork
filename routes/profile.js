@@ -43,5 +43,4 @@ router.post('/update', auth.checkIfAuthenticated, async (req, res) => {
     res.redirect('./');
 });
 
-
 module.exports = router;

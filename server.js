@@ -36,6 +36,16 @@ initializePassport(
     }
 );
 
+//must be first of all app.use()
+if(process.env.NODE_ENV === 'production') {
+    app.use((req, res, next) => {
+      if (req.header('x-forwarded-proto') !== 'https')
+        res.redirect(`https://${req.headers.host}${req.url}`)
+      else
+        next()
+    })
+}
+
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.set('layout', 'layouts/layout');
