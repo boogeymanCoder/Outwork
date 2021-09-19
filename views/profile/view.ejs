@@ -1,0 +1,108 @@
+<div class="container-sm">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 pt-4  animate__animated animate__bounceInDown">
+            
+            <h2>Profile</h2>
+            
+            <%- include("../layouts/_flash_message") %> 
+            <p>
+                Username:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.username %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                Email:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.email %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                Firstname:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.firstname %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                Middlename:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.middlename %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                Lastname:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.lastname %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                Number:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.number %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                Address:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.addressLine1 %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                Street:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.addressLine2 %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                City:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.city %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                State/Province/Region:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.stateProvinceRegion %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                Zip/Postal Code:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.zipPostalCode %>
+                    </strong>
+                </span>
+            </p>
+            <p>
+                country:
+                <span class="text-secondary float-end"> 
+                    <strong>
+                        <%= account.country %>
+                    </strong>
+                </span>
+            </p>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>

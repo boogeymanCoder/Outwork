@@ -46,8 +46,11 @@
                         <p><strong>Skills: </strong><%= job.skills %></p>
                         <strong>Details: </strong>
                         <blockquote class="blockquote text-center"><%= job.details %></blockquote>
-                        <footer class="blockquote-footer text-end">@<%= job.employer %> (<%= job.postDate.toUTCString() %>)</footer>
-                        <a href="#" class="btn btn-dark stretched-link float-end">Apply</a>
+                        <footer class="blockquote-footer text-end">
+                            @<a href="/profile/<%= job.employer %>" class="text-secondary"><%= job.employer %></a>
+                            (<%= job.postDate.toUTCString() %>)
+                        </footer>
+                        <a href="#" class="btn btn-dark float-end">Apply</a>
                     </div>
                 </div>
             <% } %>

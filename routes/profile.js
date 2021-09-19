@@ -1,11 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const Account = require('../models/account');
 
 const auth = require('./auth');
 
 router.get('/', auth.checkIfAuthenticated, (req, res) => {
-    res.render('profile/profile.ejs', { account: req.user });
+    res.redirect('profile/'+req.user.username);
+});
+
+router.get('/:username', auth.checkIfAuthenticated, async (req, res) => {
+    if (req.user.username === req.params.username) {
+        res.render('profile/profile.ejs', { account: req.user });
+    } else {
+        const account = await Account.findOne( {username: req.params.username});
+        if (account !== null) {
+            return res.render('profile/view.ejs', { account: account });
+        }
+        res.status(404).end()
+    }
 });
 
 router.post('/update', auth.checkIfAuthenticated, async (req, res) => {
@@ -40,7 +53,7 @@ router.post('/update', auth.checkIfAuthenticated, async (req, res) => {
         return res.redirect('/login');
     }
 
-    res.redirect('./');
+    res.redirect('profile/');
 });
 
 module.exports = router;
