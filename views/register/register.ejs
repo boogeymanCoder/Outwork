@@ -11,8 +11,20 @@
                 </p>
             </div>
             <form method="POST" action="register" class="needs-validation" novalidate>
-                <%- include("../layouts/_data_field_message") %>
-                <%- include("_data_fields") %>
+                <%- include("../layouts/_flash_message") %>
+                <%- include("../layouts/data_fields/_username_field") %>
+                <%- include("../layouts/data_fields/_firstname_field") %>
+                <%- include("../layouts/data_fields/_middlename_field") %>
+                <%- include("../layouts/data_fields/_lastname_field") %>
+                <%- include("../layouts/data_fields/_number_field") %>
+                <%- include("../layouts/data_fields/_addressLine1_field") %>
+                <%- include("../layouts/data_fields/_addressLine2_field") %>
+                <%- include("../layouts/data_fields/_city_field") %>
+                <%- include("../layouts/data_fields/_stateProvinceRegion_field") %>
+                <%- include("../layouts/data_fields/_zipPostalCode_field") %>
+                <%- include("../layouts/data_fields/_country_field") %>
+                <%- include("../layouts/data_fields/_email_field") %>
+                <%- include("../layouts/data_fields/_password_field") %>
                 <br>
                 <input type="submit" class="btn btn-dark float-end animate__animated animate__rubberBand" value="Register">
             </form>

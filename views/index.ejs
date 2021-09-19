@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <%- include("layouts/_data_field_message") %>
+            <%- include("layouts/_flash_message") %>
             <form method="POST" action="/job/new" class="needs-validation" novalidate>
                 <div class="card mb-3 mt-3">
                     <div class="card-header">
                         <div class="form-group">
-                            <label for="name">Job Name:</label>
+                            <label class="form-label" for="name">Job Name:</label>
                             <input  class="form-control mb-2" type="text" name="name" placeholder="Job Name" required>
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">Please enter job name.</div>
@@ -15,19 +15,19 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">Location:</label>
+                            <label class="form-label" for="name">Location:</label>
                             <input  class="form-control mb-2" type="text" name="location" placeholder="Location" required>
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">Please enter location.</div>
                         </div>
                         <div class="form-group">
-                            <label for="name">Required Skills:</label>
+                            <label class="form-label" for="name">Required Skills:</label>
                             <input  class="form-control mb-2" type="text" name="skills" placeholder="Required Skills" required>
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">Please enter required skills.</div>
                         </div>
                         <div class="form-group">
-                            <label for="name">Details:</label>
+                            <label class="form-label" for="name">Details:</label>
                             <textarea class="form-control mb-2" name="details" placeholder="Details" rows="5" required></textarea>
                             <div class="valid-feedback"></div>
                             <div class="invalid-feedback">Please enter details.</div>

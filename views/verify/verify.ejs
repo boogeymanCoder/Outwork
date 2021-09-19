@@ -4,11 +4,11 @@
         <div class="col-lg-6 mt-5 pt-5">
             <h1 class="text-center animate__animated animate__bounceInDown">Validate Email</h1>
 
-            <%- include("../layouts/_data_field_message") %>
+            <%- include("../layouts/_flash_message") %>
 
             <form method="POST" action="/verify" class="needs-validation animate__animated animate__fadeInLeft" novalidate>
                 <div class="form-group">
-                    <label for="otp">Verification OTP:</label>
+                    <label class="form-label" for="otp">Verification OTP:</label>
                     <input  class="form-control mb-2" type="text" name="otp" placeholder="Verification OTP" value="<%= otp %>" required>
                     <div class="valid-feedback"></div>
                     <div class="invalid-feedback">Please enter your Verification OTP.</div>
