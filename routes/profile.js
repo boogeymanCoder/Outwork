@@ -38,6 +38,7 @@ router.post('/update', auth.checkIfAuthenticated, async (req, res) => {
     req.user.firstname =  req.body.firstname;
     req.user.middlename =  req.body.middlename;
     req.user.lastname =  req.body.lastname;
+    req.user.gender = req.body.gender;
     req.user.number =  req.body.number;
     req.user.addressLine1 =  req.body.addressLine1;
     req.user.addressLine2 =  req.body.addressLine2;
@@ -53,7 +54,7 @@ router.post('/update', auth.checkIfAuthenticated, async (req, res) => {
         return res.redirect('/login');
     }
 
-    res.redirect('profile/');
+    res.redirect('/profile');
 });
 
 module.exports = router;

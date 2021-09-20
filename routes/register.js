@@ -20,6 +20,7 @@ router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
         firstname: req.body.firstname,
         middlename: req.body.middlename,
         lastname: req.body.lastname,
+        gender: req.body.gender,
         number: req.body.number,
         addressLine1: req.body.addressLine1,
         addressLine2: req.body.addressLine2,
