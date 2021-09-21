@@ -6,10 +6,8 @@ const Job = require('../models/job');
 
 const auth = require('./auth');
 
-// TODO add route job/update
-
 router.get('/', auth.checkIfAuthenticated, (req, res) => {
-    res.redirect('profile/'+req.user.username);
+    res.redirect('profile/' + req.user.username);
 });
 
 router.get('/:username', auth.checkIfAuthenticated, async (req, res) => {

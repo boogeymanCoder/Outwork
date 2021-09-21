@@ -3,6 +3,8 @@ const router = express.Router();
 
 const Job = require('../models/job');
 
+// TODO add route job/view
+
 router.post('/new', async (req, res) => {
     const job = new Job({
         name: req.body.name,
@@ -23,7 +25,7 @@ router.post('/edit', async (req, res) => {
     res.render('job/edit_job', { job: job });
 });
 
-router.post('/update', async (req, res) => {
+router.patch('/update', async (req, res) => {
     const job = await Job.findById(req.body.job_id);
 
     if (job === null) {

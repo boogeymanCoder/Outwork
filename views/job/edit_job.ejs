@@ -3,7 +3,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <%- include("../layouts/_flash_message") %>
-            <form method="POST" action="/job/update" class="needs-validation" novalidate>
+            <form method="POST" action="/job/update?_method=PATCH" class="needs-validation" novalidate>
                 <input type="hidden" name="job_id" value="<%= job.id %>">
                 <div class="card mb-3">
                     <%- include("../layouts/job/job_fields/_job_field_header") %>
