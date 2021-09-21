@@ -1,19 +1,18 @@
 <div class="container-sm">
-    <div class="row">
-        <div class="col-lg-4 pt-1 animate__animated animate__bounceInDown">
-            <div class="row">
-                <div class="col">
-                    <h2>Profile</h2>
-                </div>
-                <div class="col">
-                    <form action="/logout?_method=DELETE" method="POST">
-                        <input class="btn btn-dark float-end" type="submit" value="Logout">
-                    </form>
-                </div>
-            </div>
-            
+    <div class="row pt-2">
+        <div class="col">
+            <h2>Profile</h2>
+        </div>
+        <div class="col">
+            <form action="/logout?_method=DELETE" method="POST">
+                <input class="btn btn-dark float-end" type="submit" value="Logout">
+            </form>
+        </div>
+    </div>
+    <div class="row mt-2 animate__animated animate__bounceInDown">
+        <div class="col-lg-4">
             <%- include("../layouts/_flash_message") %> 
-            <form method="POST" action="/profile/update" class="needs-validation" novalidate>
+            <form method="POST" action="/profile/update?_method=PATCH" class="needs-validation" novalidate>
                 <label class="form-label" for="username">Username:</label>
                 <span class="text-secondary float-end"> 
                     <strong>
@@ -42,7 +41,23 @@
                 <%- include("../layouts/data_fields/_newpass_field") %>
                 <input type="submit" class="btn btn-dark float-end animate__animated animate__rubberBand" value="Update">
             </form>
+            <!-- TODO check password strength onbackend as well -->
         </div>
-        <div class="col-lg-4"></div>
+        <div class="col-lg-8">
+            <%- include("../layouts/job/_new_job") %>
+            <% for(job of jobs) { %>
+                <form method="POST" action="/job/edit">
+                    <input type="hidden" name="job_id" value="<%= job.id %>">
+                    <div class="card mb-3 mt-3  ">
+                        <%- include("../layouts/job/job_view/_job_header") %>
+                        <%- include("../layouts/job/job_view/_job_body") %>
+                        <div class="card-footer">
+                            <input type="submit" class="btn btn-dark float-end mx-2" value="Edit">
+                            <a href="#" class="btn btn-dark float-end">Applications</a>
+                        </div>
+                    </div>
+                </form>
+            <% } %>
+        </div>
     </div>
 </div>

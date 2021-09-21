@@ -2,8 +2,11 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const Account = require('../models/account');
+const Job = require('../models/job');
 
 const auth = require('./auth');
+
+// TODO add route job/update
 
 router.get('/', auth.checkIfAuthenticated, (req, res) => {
     res.redirect('profile/'+req.user.username);
@@ -11,7 +14,12 @@ router.get('/', auth.checkIfAuthenticated, (req, res) => {
 
 router.get('/:username', auth.checkIfAuthenticated, async (req, res) => {
     if (req.user.username === req.params.username) {
-        res.render('profile/profile.ejs', { account: req.user });
+        const jobs = await Job.find({employer: req.user.username});
+        res.render('profile/profile.ejs', { 
+            account: req.user,
+            job: new Job(),
+            jobs: jobs
+        });
     } else {
         const account = await Account.findOne( {username: req.params.username});
         if (account !== null) {
@@ -21,7 +29,7 @@ router.get('/:username', auth.checkIfAuthenticated, async (req, res) => {
     }
 });
 
-router.post('/update', auth.checkIfAuthenticated, async (req, res) => {
+router.patch('/update', auth.checkIfAuthenticated, async (req, res) => {
     var passwordUpdated = false;
     const newpass1 = req.body.newpass1;
     const newpass2 = req.body.newpass2;

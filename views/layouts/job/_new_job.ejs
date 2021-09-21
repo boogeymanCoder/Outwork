@@ -1,0 +1,9 @@
+<form method="POST" action="/job/new" class="needs-validation" novalidate>
+    <div class="card mb-3">
+        <%- include("./job_fields/_job_field_header") %>
+        <%- include("./job_fields/_job_field_body") %>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-dark float-end" value="Post">
+        </div>
+    </div>
+</form>

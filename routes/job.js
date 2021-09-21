@@ -18,4 +18,34 @@ router.post('/new', async (req, res) => {
     res.redirect('/');
 });
 
+router.post('/edit', async (req, res) => {
+    const job = await Job.findById(req.body.job_id);
+    res.render('job/edit_job', { job: job });
+});
+
+router.post('/update', async (req, res) => {
+    const job = await Job.findById(req.body.job_id);
+
+    if (job === null) {
+        req.flash('error', 'Something went wrong.');
+        return res.redirect('/profile');
+    }
+
+    if (job.employer !== req.user.username) {
+        req.flash('error', 'Update denied, job not owned.');
+        return res.redirect('/profile');
+    }
+
+    job.name = req.body.name;
+    job.location = req.body.location;
+    job.skills = req.body.skills;
+    job.details = req.body.details;
+
+    await job.save();
+
+    req.flash('info', 'Job successfuly updated.');
+    res.redirect('/profile');
+
+});
+
 module.exports = router;
