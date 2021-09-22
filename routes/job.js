@@ -29,7 +29,7 @@ router.get('/view/:job_id', async (req, res) => {
     if (job.employer === req.user.username) {
         res.render('job/edit_job', { job: job, applications: applicationRequests });
     } else {
-        res.render('job/view_job', { job: job });
+        res.render('job/view_job', { job: job, applications: applicationRequests });
     }
 });
 
