@@ -2,7 +2,8 @@
     <%- include("./job_view/_job_header") %>
     <%- include("./job_view/_job_body") %>
     <div class="card-footer">
-        <input type="submit" class="btn btn-dark float-end mx-2" value="Edit">
-        <a href="#" class="btn btn-dark float-end">Applications</a>
+        <form method="GET" action="/job/view/<%= job.id %>">
+            <button type="submit" class="btn float-end"><i class="fas fa-edit fa-lg"></i></button>
+        </form>
     </div>
 </div>

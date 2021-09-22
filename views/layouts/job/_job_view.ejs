@@ -2,6 +2,13 @@
     <%- include("./job_view/_job_header") %>
     <%- include("./job_view/_job_body") %>
     <div class="card-footer">
-        <a href="#" class="btn btn-dark float-end">Apply</a>
+        <form method="POST" action="/job/apply/<%= job.id %>" class="needs-validation" novalidate>
+            <div class="input-group">
+                <input type="text" name="message" class="form-control" placeholder="Message" aria-label="Example text with button addon" aria-describedby="apply-button" required>
+                <input class="btn btn-dark btn-outline-light rounded-end" type="submit" id="apply-button" value="Apply">
+                <div class="valid-feedback"></div>
+                <div class="invalid-feedback">Please enter application message</div>
+            </div>
+        </form>
     </div>
 </div>

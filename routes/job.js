@@ -1,9 +1,12 @@
+const { application } = require('express');
 const express = require('express');
 const router = express.Router();
 
 const Job = require('../models/job');
+const Application = require('../models/application');
 
-// TODO add route job/view
+// TODO add route job/apply
+// TODO add route job/invitation
 
 router.post('/new', async (req, res) => {
     const job = new Job({
@@ -20,15 +23,17 @@ router.post('/new', async (req, res) => {
     res.redirect('/');
 });
 
-router.post('/view/:job_id', async (req, res) => {
+router.get('/view/:job_id', async (req, res) => {
     const job = await Job.findById(req.params.job_id);
+    const applicationRequests = await Application.find({ jobId: job.id });
     if (job.employer === req.user.username) {
-        res.render('job/edit_job', { job: job });
+        res.render('job/edit_job', { job: job, applications: applicationRequests });
     } else {
         res.render('job/view_job', { job: job });
     }
 });
 
+// TODO change date when updating job
 router.patch('/update', async (req, res) => {
     const job = await Job.findById(req.body.job_id);
 
@@ -50,8 +55,29 @@ router.patch('/update', async (req, res) => {
     await job.save();
 
     req.flash('info', 'Job successfuly updated.');
-    res.redirect('/profile');
+    res.redirect(`/job/view/${req.body.job_id}`);
 
+});
+
+router.post('/apply/:job_id', async (req, res) => {
+    console.log(req.user);
+    const job = await Job.findById(req.params.job_id);
+
+    if (job === null) {
+        req.flash('error', 'Job not found');
+        return res.redirect('/');
+    }
+
+    const applicationRequest = new Application();
+    applicationRequest.employee = req.user.username;
+    applicationRequest.jobId = job.id;
+    applicationRequest.message = req.body.message;
+    applicationRequest.time = new Date();
+
+    await applicationRequest.save();
+
+    req.flash('info', 'Apllication request successfully sent');
+    res.redirect('/');
 });
 
 module.exports = router;
