@@ -6,7 +6,7 @@ const Job = require('../models/job');
 
 router.get('/', auth.checkIfAuthenticated, async (req, res) => {
     const jobs = await Job.find({});
-    res.render('index', { job: new Job(), jobs: jobs });
+    res.render('index', { job: new Job(), jobs: jobs, username: req.user.username });
 });
 
 router.delete('/logout', (req, res) => {

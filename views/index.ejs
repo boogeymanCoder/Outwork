@@ -5,7 +5,11 @@
             <%- include("layouts/_flash_message") %>
             <%- include("./layouts/job/_new_job") %>
             <% for(job of jobs) { %>
-                <%- include("./layouts/job/_job_view") %>
+                <% if (job.employer === username) { %>
+                    <%- include("./layouts/job/_job_edit") %>
+                <% } else { %>
+                    <%- include("./layouts/job/_job_view") %>
+                <% } %>
             <% } %>
         </div>
         <div class="col-md-2"></div>
