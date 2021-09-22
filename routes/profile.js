@@ -61,6 +61,7 @@ router.patch('/update', auth.checkIfAuthenticated, async (req, res) => {
         return res.redirect('/login');
     }
 
+    req.flash('info', 'Successfully updated.');
     res.redirect('/profile');
 });
 

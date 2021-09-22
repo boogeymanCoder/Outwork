@@ -20,9 +20,13 @@ router.post('/new', async (req, res) => {
     res.redirect('/');
 });
 
-router.post('/edit', async (req, res) => {
-    const job = await Job.findById(req.body.job_id);
-    res.render('job/edit_job', { job: job });
+router.post('/view/:job_id', async (req, res) => {
+    const job = await Job.findById(req.params.job_id);
+    if (job.employer === req.user.username) {
+        res.render('job/edit_job', { job: job });
+    } else {
+        res.render('job/view_job', { job: job });
+    }
 });
 
 router.patch('/update', async (req, res) => {

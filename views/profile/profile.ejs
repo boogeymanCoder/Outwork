@@ -43,11 +43,10 @@
             </form>
             <!-- TODO check password strength onbackend as well -->
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 pt-3">
             <%- include("../layouts/job/_new_job") %>
             <% for(job of jobs) { %>
-                <form method="POST" action="/job/edit">
-                    <input type="hidden" name="job_id" value="<%= job.id %>">
+                <form method="POST" action="/job/view/<%= job.id %>">
                     <div class="card mb-3 mt-3  ">
                         <%- include("../layouts/job/job_view/_job_header") %>
                         <%- include("../layouts/job/job_view/_job_body") %>
