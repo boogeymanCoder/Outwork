@@ -64,6 +64,7 @@ async function sendRecoveryMail(receiver, otp, id, req) {
     });
 }
 
+// TODO generate strong password
 async function sendNewPassMail(receiver, pass, req) {
     const link = `${ req.protocol }://${ req.headers.host }/login`;
     const mailHtml = await ejs.renderFile(__dirname + '/../views/mail/newpass_mail.ejs', {
