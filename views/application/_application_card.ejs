@@ -2,7 +2,7 @@
     <div class="card-body">
         <blockquote class="blockquote text-center"><%= application.message %></blockquote>
         <footer class="blockquote-footer text-end">
-            @<a href="/profile/view/<%= application.employee %>" class="text-secondary"><%= job.employee %></a>
+            @<a href="/profile/view/<%= application.employee %>" class="text-secondary"><%= application.employee %></a>
             (<%= application.time.toUTCString() %>)
         </footer>
     </div>
