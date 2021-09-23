@@ -5,7 +5,7 @@ const router = express.Router();
 const Job = require('../models/job');
 const Application = require('../models/application');
 
-// TODO add route job/apply
+// TODO require authentications
 // TODO add route job/invitation
 
 router.post('/new', async (req, res) => {
@@ -33,7 +33,6 @@ router.get('/view/:job_id', async (req, res) => {
     }
 });
 
-// TODO change date when updating job
 router.patch('/update', async (req, res) => {
     const job = await Job.findById(req.body.job_id);
 
@@ -51,12 +50,12 @@ router.patch('/update', async (req, res) => {
     job.location = req.body.location;
     job.skills = req.body.skills;
     job.details = req.body.details;
+    job.postDate = new Date();
 
     await job.save();
 
     req.flash('info', 'Job successfuly updated.');
     res.redirect(`/job/view/${req.body.job_id}`);
-
 });
 
 router.post('/apply/:job_id', async (req, res) => {

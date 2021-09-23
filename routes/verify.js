@@ -11,6 +11,7 @@ router.get('/', auth.checkIfNotAuthenticated, async (req, res) => {
     });
 });
 
+// TODO prompt user if reverifying account
 router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
     const otpPin = req.body.otp;
 
