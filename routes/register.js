@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
     res.render('register/register',  { account: new Account() });
 });
 
-// TODO check password strength onbackend as well
 router.post('/', async (req, res) => {
     const account = new Account({
         username: req.body.username,

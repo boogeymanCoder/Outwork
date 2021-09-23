@@ -29,7 +29,6 @@ router.get('/view/:username', async (req, res) => {
     }
 });
 
-// TODO check password strength onbackend as well
 router.patch('/update', async (req, res) => {
     var passwordUpdated = false;
     const newpass1 = req.body.newpass1;
