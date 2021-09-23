@@ -1,8 +1,8 @@
-<div class="container-sm">
+<div class="container-sm animate__animated animate__bounceInDown">
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6 mt-5 pt-5">
-            <div class="container-fluid animate__animated animate__bounceInDown">
+            <div class="container-fluid">
                 <h1 class="text-center">Login</h1>
                 <p class="text-center animate__animated animate__rubberBand animate__delay-2s">
                     <strong>New to this site?
@@ -11,7 +11,7 @@
                 </p>
             </div>
             <%- include("../layouts/_flash_message") %>
-            <form method="POST" action="/login" class="needs-validation animate__animated animate__fadeInLeft" novalidate>
+            <form method="POST" action="/login" class="needs-validation" novalidate>
                 <div class="form-group">
                     <label class="form-label" for="emailUsername">Email or Username:</label>
                     <input  class="form-control mb-2"type="text" id="my-element" name="emailUsername" placeholder="Email or Username" required>
