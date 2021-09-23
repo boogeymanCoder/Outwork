@@ -2,6 +2,6 @@
     <blockquote class="blockquote text-center"><%= application.message %></blockquote>
     <footer class="blockquote-footer text-end">
         @<a href="/profile/view/<%= application.employee %>" class="text-secondary"><%= application.employee %></a>
-        (<%= application.time.toUTCString() %>)
+        (<%= application.time.toLocaleString() %>)
     </footer>
 </div>

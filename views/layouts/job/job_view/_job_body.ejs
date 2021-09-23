@@ -5,6 +5,6 @@
     <blockquote class="blockquote text-center"><%= job.details %></blockquote>
     <footer class="blockquote-footer text-end">
         @<a href="/profile/view/<%= job.employer %>" class="text-secondary"><%= job.employer %></a>
-        (<%= job.postDate.toUTCString() %>)
+        (<%= job.postDate.toLocaleString() %>)
     </footer>
 </div>
