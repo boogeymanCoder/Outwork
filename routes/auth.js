@@ -9,6 +9,7 @@ function checkIfAuthenticated(req, res, next) {
 
 function checkIfNotAuthenticated(req, res, next) {
     if(req.isAuthenticated()) {
+        req.flash('info', 'Please logout first to access page');
         return res.redirect('/');
     }
 
