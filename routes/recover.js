@@ -20,7 +20,7 @@ async function recoveryMailer(account, req){
     if (otp == null) {
         otp = new Otp({
             accountId: account.id,
-            pin: otpGenerator.generate(6),
+            pin: otpGenerator.generate(),
             type: 'recovery',
             until: now
         });
