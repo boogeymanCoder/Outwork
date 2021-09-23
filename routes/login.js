@@ -8,11 +8,13 @@ const mail = require('./mail');
 const Otp = require('../models/otp');
 const auth = require('./auth');
 
-router.get('/', auth.checkIfNotAuthenticated, (req, res) => {
+router.all('*', auth.checkIfNotAuthenticated);
+
+router.get('/', (req, res) => {
     res.render('login/login');
 });
 
-router.post('/', auth.checkIfNotAuthenticated, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     const account = await Account.findOne({
         $or: [
             { email: req.body.emailUsername }, 

@@ -8,15 +8,15 @@ const Account = require('../models/account');
 const mail = require('./mail');
 const Otp = require('../models/otp');
 const auth = require('./auth');
-const Job = require('../models/job');
 
-router.get('/', auth.checkIfNotAuthenticated, (req, res) => {
+router.all('*', auth.checkIfNotAuthenticated);
+
+router.get('/', (req, res) => {
     res.render('register/register',  { account: new Account() });
 });
 
-
 // TODO check password strength onbackend as well
-router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
+router.post('/', async (req, res) => {
     const account = new Account({
         username: req.body.username,
         firstname: req.body.firstname,

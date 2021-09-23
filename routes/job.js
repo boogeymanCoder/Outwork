@@ -4,9 +4,11 @@ const router = express.Router();
 
 const Job = require('../models/job');
 const Application = require('../models/application');
+const auth = require("./auth");
 
-// TODO require authentications
 // TODO add route job/invitation
+
+router.all('*', auth.checkIfAuthenticated);
 
 router.post('/new', async (req, res) => {
     const job = new Job({

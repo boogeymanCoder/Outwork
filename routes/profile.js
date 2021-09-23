@@ -6,11 +6,13 @@ const Job = require('../models/job');
 
 const auth = require('./auth');
 
-router.get('/', auth.checkIfAuthenticated, (req, res) => {
+router.all('*', auth.checkIfAuthenticated);
+
+router.get('/', (req, res) => {
     res.redirect('profile/view/' + req.user.username);
 });
 
-router.get('/view/:username', auth.checkIfAuthenticated, async (req, res) => {
+router.get('/view/:username', async (req, res) => {
     if (req.user.username === req.params.username) {
         const jobs = await Job.find({employer: req.user.username});
         res.render('profile/profile.ejs', { 
@@ -28,7 +30,7 @@ router.get('/view/:username', auth.checkIfAuthenticated, async (req, res) => {
 });
 
 // TODO check password strength onbackend as well
-router.patch('/update', auth.checkIfAuthenticated, async (req, res) => {
+router.patch('/update', async (req, res) => {
     var passwordUpdated = false;
     const newpass1 = req.body.newpass1;
     const newpass2 = req.body.newpass2;

@@ -5,14 +5,15 @@ const Account = require('../models/account');
 const Otp = require('../models/otp');
 const auth = require('./auth');
 
-router.get('/', auth.checkIfNotAuthenticated, async (req, res) => {
+router.all('*', auth.checkIfNotAuthenticated);
+
+router.get('/', async (req, res) => {
     res.render('verify/verify', {
         otp: ''
     });
 });
 
-// TODO prompt user if reverifying account
-router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
+router.post('/', async (req, res) => {
     const otpPin = req.body.otp;
 
     const otp = await Otp.findOne({
@@ -20,7 +21,7 @@ router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
         type: 'verification'
     });
     if(otp == null) {
-        req.flash('error', 'Invalid OTP')
+        req.flash('error', 'OTP is Invalid or already used');
         return res.render('verify/verify', {
             otp: otpPin
         });

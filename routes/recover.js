@@ -30,13 +30,15 @@ async function recoveryMailer(account, req){
     await otp.save();
 }
 
-router.get('/', auth.checkIfNotAuthenticated, (req, res) => {
+router.all('*', auth.checkIfNotAuthenticated);
+
+router.get('/', (req, res) => {
     res.render('recover/recover', {
         email: ''
     });
 });
 
-router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
+router.post('/', async (req, res) => {
     const account = await Account.findOne({ email: req.body.email });
     if (account == null) {
         req.flash('error', 'Email does not exist');
@@ -51,14 +53,14 @@ router.post('/', auth.checkIfNotAuthenticated, async (req, res) => {
     res.redirect(`/recover/${ account.id }/otp`);
 });
 
-router.get('/:id/otp', auth.checkIfNotAuthenticated, (req, res) => {
+router.get('/:id/otp', (req, res) => {
     res.render('recover/recover_otp', {
         otp: '',
         id: req.params.id
     });
 });
 
-router.post('/:id/otp', auth.checkIfNotAuthenticated, async (req, res) => {
+router.post('/:id/otp', async (req, res) => {
     const account = await Account.findById(req.params.id).catch(err => {
         req.flash('error', 'Invalid URL');
     });
