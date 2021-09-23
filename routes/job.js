@@ -28,6 +28,7 @@ router.post('/new', async (req, res) => {
 router.get('/view/:job_id', async (req, res) => {
     const job = await Job.findById(req.params.job_id);
     const applicationRequests = await Application.find({ jobId: job.id });
+    applicationRequests.sort((a, b) => b.time - a.time);
     if (job.employer === req.user.username) {
         res.render('job/edit_job', { job: job, applications: applicationRequests });
     } else {

@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.get('/view/:username', async (req, res) => {
     if (req.user.username === req.params.username) {
         const jobs = await Job.find({employer: req.user.username});
+        jobs.sort((a, b) => b.postDate - a.postDate);
         res.render('profile/profile.ejs', { 
             account: req.user,
             job: new Job(),
