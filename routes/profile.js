@@ -37,10 +37,18 @@ router.patch('/update', async (req, res) => {
 
     if( newpass1 != '' || newpass2 != ''){
         if (newpass1 == newpass2) {
+        //check password at backend as well
+        //prevents registering weak passwords by edditing on element inspector
+        if (!auth.checkPasswordStrength(req.body.password)) {
+            req.flash('error', 'Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and is at least eight characters long.');
+            return res.redirect('/profile');
+        }
+
             req.user.password = await bcrypt.hash(newpass1, 10);
             passwordUpdated = true;
         } else {
-            req.flash('error', 'Passwords does not match');
+            req.flash('error', 'Passwords does not match, update failed');
+            return res.redirect('/profile');
         }
     }
 

@@ -16,7 +16,13 @@ function checkIfNotAuthenticated(req, res, next) {
     next();
 }
 
+function checkPasswordStrength(password) {
+    const regex = new RegExp('^$|((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,})');
+    return regex.test(password);
+}
+
 module.exports = {
     checkIfAuthenticated: checkIfAuthenticated,
-    checkIfNotAuthenticated: checkIfNotAuthenticated
+    checkIfNotAuthenticated: checkIfNotAuthenticated,
+    checkPasswordStrength: checkPasswordStrength
 }
