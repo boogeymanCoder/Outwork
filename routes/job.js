@@ -1,4 +1,3 @@
-const { application } = require('express');
 const express = require('express');
 const router = express.Router();
 
@@ -7,6 +6,7 @@ const Application = require('../models/application');
 const auth = require("./auth");
 
 // TODO add route job/invitation
+// TODO add route job/accept/:application_id
 
 router.all('*', auth.checkIfAuthenticated);
 

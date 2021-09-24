@@ -4,8 +4,6 @@ const router = express.Router();
 const auth = require('./auth');
 const Job = require('../models/job');
 
-
-
 router.get('/', auth.checkIfAuthenticated, async (req, res) => {
     const jobs = await Job.find({});
     jobs.sort((a, b) => b.postDate - a.postDate);

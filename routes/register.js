@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const passport = require('passport');
 const otpGenerator = require('otp-generator');
 
 const Account = require('../models/account');
