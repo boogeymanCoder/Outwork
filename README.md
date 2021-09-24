@@ -1,7 +1,7 @@
 # Outwork
 A one time request hiring site
 
-To understand the code the developer suggests the following tutorial:
+To understand the code the developer suggests the following tutorial:<br/>
 Web Dev Simplified - Full Stack Web Development Course: https://www.youtube.com/watch?v=XlvsJLer_No&list=PLZlA0Gpn_vH8jbFkBjOuFjhxANC63OmXM<br/>
 gmail google OAuth 2.0 tutorial: https://youtu.be/18qA61bpfUs<br/>
 
