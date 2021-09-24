@@ -83,10 +83,10 @@ app.use('/', indexRouter);
 
 
 // Handle 404
-// app.use(function(req, res) {
-//     res.status(400);
-//     res.render('404');
-// });
+app.use(function(req, res) {
+    res.status(400);
+    res.render('404');
+});
    
 // Handle 500
 app.use(function(error, req, res, next) {
