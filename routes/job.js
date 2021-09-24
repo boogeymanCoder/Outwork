@@ -27,12 +27,12 @@ router.post('/new', async (req, res) => {
 
 router.get('/view/:job_id', async (req, res) => {
     const job = await Job.findById(req.params.job_id);
-    const applicationRequests = await Application.find({ jobId: job.id });
-    applicationRequests.sort((a, b) => b.time - a.time);
+    const applications = await Application.find({ jobId: job.id });
+    applications.sort((a, b) => b.time - a.time);
     if (job.employer === req.user.username) {
-        res.render('job/edit_job', { job: job, applications: applicationRequests });
+        res.render('job/edit_job', { job: job, applications: applications });
     } else {
-        res.render('job/view_job', { job: job, applications: applicationRequests });
+        res.render('job/view_job', { job: job, applications: applications });
     }
 });
 
@@ -70,16 +70,20 @@ router.post('/apply/:job_id', async (req, res) => {
         return res.redirect('/');
     }
 
-    const applicationRequest = new Application();
-    applicationRequest.employee = req.user.username;
-    applicationRequest.jobId = job.id;
-    applicationRequest.message = req.body.message;
-    applicationRequest.time = new Date();
+    const application = new Application();
+    application.employee = req.user.username;
+    application.jobId = job.id;
+    application.message = req.body.message;
+    application.time = new Date();
 
-    await applicationRequest.save();
+    await application.save();
 
     req.flash('info', 'Apllication request successfully sent');
     res.redirect('/');
 });
+
+// router.patch('job/accept/:application_id', (req, res) => {
+//     const 
+// });
 
 module.exports = router;
