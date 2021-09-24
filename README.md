@@ -1,6 +1,10 @@
 # Outwork
 A one time request hiring site
 
+To understand the code the developer suggests the following tutorial:
+Web Dev Simplified - Full Stack Web Development Course: https://www.youtube.com/watch?v=XlvsJLer_No&list=PLZlA0Gpn_vH8jbFkBjOuFjhxANC63OmXM<br/>
+gmail google OAuth 2.0 tutorial: https://youtu.be/18qA61bpfUs<br/>
+
 To run on local:<br/>
 
 Step 1 (Prepair requirements):<br/>
@@ -15,7 +19,9 @@ Step 4 (Setup environmental variables): <br/>
 create a file with filename ".env" with content: <br/>
 DATABASE_URL = mongodb://localhost/outwork <br/>
 SESSION_SECRET = // 10 character long string for session authentication <br/>
-USER, CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN of google OAuth 2.0 credential https://console.cloud.google.com/apis/credentials with authorized redirect uri https://developers.google.com/oauthplayground<br/>
+USER, CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN of google OAuth 2.0 credential https://console.cloud.google.com/apis/credentials<br/>
+authorized redirect uri: https://developers.google.com/oauthplayground<br/>
+gmail google OAuth 2.0 tutorial: https://youtu.be/18qA61bpfUs<br/>
 
   !Reminder: remember to not remove ".env" from configure .gitignore file to avoid security problems <br/>
 
