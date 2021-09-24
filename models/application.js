@@ -16,6 +16,11 @@ const applicationSchema = new mongoose.Schema({
     time: {
         type: Date,
         required: true
+    },
+    accepted: {
+        type: Boolean,
+        required: true,
+        default: false
     }
 });
 

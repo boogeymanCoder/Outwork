@@ -1,3 +1,7 @@
 <% for (application of applications) { %>
-    <%- include("../application/_view_application") %>
+    <% if (application.accepted) { %>
+        <%- include("../application/_view_application_accepted") %>
+    <% } else { %>
+        <%- include("../application/_view_application") %>
+    <% } %>
 <% } %>

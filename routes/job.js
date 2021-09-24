@@ -4,6 +4,7 @@ const router = express.Router();
 const Job = require('../models/job');
 const Application = require('../models/application');
 const auth = require("./auth");
+const Account = require('../models/account');
 
 // TODO add route job/invitation
 // TODO add route job/accept/:application_id
@@ -82,8 +83,19 @@ router.post('/apply/:job_id', async (req, res) => {
     res.redirect('/');
 });
 
-// router.patch('job/accept/:application_id', (req, res) => {
-//     const 
-// });
+router.patch('/accept/:application_id', async (req, res) => {
+    const application = await Application.findById(req.params.application_id);
+
+    if (application === null) {
+        req.flash('error', 'invalid url');
+        return res.redirect('/');
+    }
+
+    application.accepted = true;
+    await application.save();
+
+    req.flash('info', `${application.employee} has been accepted`);
+    res.redirect(`/job/view/${application.jobId}`);
+});
 
 module.exports = router;
