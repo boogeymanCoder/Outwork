@@ -7,7 +7,13 @@ const auth = require("./auth");
 const Account = require('../models/account');
 
 // TODO add route job/invitation
-// TODO add route job/accept/:application_id
+// TODO edit application message (update time on edit)
+// TODO cancel application
+// TODO cancel applicant
+// TODO quit job
+// TODO close job
+
+
 
 router.all('*', auth.checkIfAuthenticated);
 
@@ -33,7 +39,7 @@ router.get('/view/:job_id', async (req, res) => {
     if (job.employer === req.user.username) {
         res.render('job/edit_job', { job: job, applications: applications });
     } else {
-        res.render('job/view_job', { job: job, applications: applications });
+        res.render('job/view_job', { job: job, applications: applications, username: req.user.username });
     }
 });
 
@@ -80,7 +86,7 @@ router.post('/apply/:job_id', async (req, res) => {
     await application.save();
 
     req.flash('info', 'Apllication request successfully sent');
-    res.redirect('/');
+    res.redirect(`/job/view/${req.params.job_id}`);
 });
 
 router.patch('/accept/:application_id', async (req, res) => {
