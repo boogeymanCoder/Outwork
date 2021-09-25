@@ -34,6 +34,7 @@
             deferredPrompt = e;
         });
 
+        // called by navbar install
         function install(){
             // Show the prompt
             deferredPrompt.prompt();
@@ -125,5 +126,7 @@
         <br>
         <i class="far fa-copyright"></i>2021 by <a class="text-secondary" href="/">Outwork</a>
     </footer>
+    <!-- initialized dynamic text areas -->
+    <%- include("./data_fields/_textarea_setup") %>
 </body>
 </html>

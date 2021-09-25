@@ -7,8 +7,7 @@ const auth = require("./auth");
 const Account = require('../models/account');
 
 // TODO add route job/invitation
-// TODO edit appli0cation message to text area
-// TODO edit application message (update time on edit)
+// TODO edit application message (update time on edit) "modal"
 // TODO cancel application
 // TODO cancel applicant
 // TODO quit job
