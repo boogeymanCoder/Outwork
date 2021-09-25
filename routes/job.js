@@ -8,11 +8,9 @@ const Account = require('../models/account');
 
 // TODO add route job/invitation
 // TODO edit application message (update time on edit) "modal"
-// TODO cancel application
 // TODO quit job
 // TODO close job
-
-
+// TODO should only be able to apply once
 
 router.all('*', auth.checkIfAuthenticated);
 

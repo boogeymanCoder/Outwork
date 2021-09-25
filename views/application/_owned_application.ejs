@@ -1,6 +1,9 @@
 <div class="card mb-3 mt-3  ">
     <%- include("./_application_body") %>
     <div class="card-footer">
+        <form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
+            <input type="submit" class="btn btn-dark float-end" value="Cancel">
+        </form>
         <form method="POST" action="#">
             <input type="submit" class="btn btn-dark float-end disabled" value="Edit">
         </form>
