@@ -4,7 +4,7 @@
         <div class="col-md-8">
             <%- include("../layouts/_flash_message") %>
             <% if (job_applications[job.id] !== null) { %>
-                <%- include("../layouts/job/_job_view_applied") %>
+                <%- include("../layouts/job/_job_view_applied", { application: job_applications[job.id]}) %>
             <% } else { %>
                 <%- include("../layouts/job/_job_view") %>
             <% } %>

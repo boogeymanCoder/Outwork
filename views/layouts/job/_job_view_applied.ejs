@@ -2,6 +2,6 @@
     <%- include("./job_view/_job_header") %>
     <%- include("./job_view/_job_body") %>
     <div class="card-footer">
-        <p>Applied</p>
+        <%- include("../../application/_owned_application", { application: application }) %>
     </div>
 </div>

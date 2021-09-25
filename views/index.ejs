@@ -8,7 +8,7 @@
                 <% if (job.employer === username) { %>
                     <%- include("./layouts/job/_job_edit") %>
                 <% } else if (job_applications[job.id] !== null) { %>
-                    <%- include("./layouts/job/_job_view_applied") %>
+                    <%- include("./layouts/job/_job_view_applied", { application: job_applications[job.id]}) %>
                 <% } else { %>
                     <%- include("./layouts/job/_job_view") %>
                 <% } %>
@@ -18,3 +18,4 @@
     </div>
 </div>
 <%- include("./application/_application_edit_modal") %>
+<!-- remodel all includes https://stackoverflow.com/questions/29196562/how-to-include-a-template-with-parameters-in-ejs -->
