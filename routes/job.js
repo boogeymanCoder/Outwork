@@ -28,7 +28,7 @@ router.post('/new', async (req, res) => {
     });
 
     await job.save();
-    req.flash('info', 'posted successfully');
+    req.flash('info', 'Posted successfully');
     res.redirect('/');
 });
 
@@ -52,7 +52,7 @@ router.patch('/update', async (req, res) => {
     }
 
     if (job.employer !== req.user.username) {
-        req.flash('error', 'Update denied, job not owned.');
+        req.flash('error', 'Update denied, job not owned');
         return res.redirect('/profile');
     }
 
@@ -64,7 +64,7 @@ router.patch('/update', async (req, res) => {
 
     await job.save();
 
-    req.flash('info', 'Job successfuly updated.');
+    req.flash('info', 'Job successfuly updated');
     res.redirect(`/job/view/${req.body.job_id}`);
 });
 
@@ -85,7 +85,7 @@ router.post('/apply/:job_id', async (req, res) => {
 
     await application.save();
 
-    req.flash('info', 'Apllication request successfully sent');
+    req.flash('info', 'Application request successfully sent');
     res.redirect(`/job/view/${req.params.job_id}`);
 });
 
@@ -93,7 +93,7 @@ router.patch('/accept/:application_id', async (req, res) => {
     const application = await Application.findById(req.params.application_id);
 
     if (application === null) {
-        req.flash('error', 'invalid url');
+        req.flash('error', 'Invalid url');
         return res.redirect('/');
     }
 
@@ -108,14 +108,14 @@ router.delete('/cancel/:application_id', async (req, res) => {
     const application = await Application.findById(req.params.application_id);
 
     if (application === null) {
-        req.flash('error', 'invalid url');
+        req.flash('error', 'Invalid url');
         return res.redirect('/');
     }
 
     application.accepted = false;
     await application.save();
     
-    req.flash('info', 'Appplication has been canceled');
+    req.flash('info', 'Application has been canceled');
     res.redirect(`/job/view/${application.jobId}`);
 });
 

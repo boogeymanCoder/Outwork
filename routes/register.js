@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
     //check password at backend as well
     //prevents registering weak passwords by edditing on element inspector
     if (!auth.checkPasswordStrength(req.body.password)) {
-        req.flash('error', 'Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and is at least eight characters long.');
+        req.flash('error', 'Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and is at least eight characters long');
         return res.render('register/register',  { 
             account: account
         });
