@@ -9,7 +9,6 @@ const Account = require('../models/account');
 // TODO add route job/invitation
 // TODO edit application message (update time on edit) "modal"
 // TODO cancel application
-// TODO cancel applicant
 // TODO quit job
 // TODO close job
 
@@ -93,7 +92,7 @@ router.patch('/accept/:application_id', async (req, res) => {
     const application = await Application.findById(req.params.application_id);
 
     if (application === null) {
-        req.flash('error', 'Invalid url');
+        req.flash('error', 'Invalid URL');
         return res.redirect('/');
     }
 
@@ -108,7 +107,7 @@ router.delete('/cancel/:application_id', async (req, res) => {
     const application = await Application.findById(req.params.application_id);
 
     if (application === null) {
-        req.flash('error', 'Invalid url');
+        req.flash('error', 'Invalid URL');
         return res.redirect('/');
     }
 
