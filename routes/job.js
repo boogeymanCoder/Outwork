@@ -104,4 +104,19 @@ router.patch('/accept/:application_id', async (req, res) => {
     res.redirect(`/job/view/${application.jobId}`);
 });
 
+router.delete('/cancel/:application_id', async (req, res) => {
+    const application = await Application.findById(req.params.application_id);
+
+    if (application === null) {
+        req.flash('error', 'invalid url');
+        return res.redirect('/');
+    }
+
+    application.accepted = false;
+    await application.save();
+    
+    req.flash('info', 'Appplication has been canceled');
+    res.redirect(`/job/view/${application.jobId}`);
+});
+
 module.exports = router;
