@@ -1,7 +1,15 @@
 <% for (application of applications) { %>
-    <% if (application.accepted) { %>
-        <%- include("../application/_view_application_accepted") %>
+    <% if (application.employee === username) { %>
+        <% if (application.accepted) { %>
+            <%- include("../application/_owned_application_accepted") %>
+        <% } else { %>
+            <%- include("../application/_owned_application") %>
+        <% } %>
     <% } else { %>
-        <%- include("../application/_view_application") %>
+        <% if (application.accepted) { %>
+            <%- include("../application/_view_application_accepted") %>
+        <% } else { %>
+            <%- include("../application/_view_application") %>
+        <% } %>
     <% } %>
 <% } %>
