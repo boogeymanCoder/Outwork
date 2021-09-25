@@ -7,7 +7,7 @@
             <% for(job of jobs) { %>
                 <% if (job.employer === username) { %>
                     <%- include("./layouts/job/_job_edit") %>
-                <% } else if (job_applicants[job.id].includes(username)) { %>
+                <% } else if (job_applications[job.id] !== null) { %>
                     <%- include("./layouts/job/_job_view_applied") %>
                 <% } else { %>
                     <%- include("./layouts/job/_job_view") %>

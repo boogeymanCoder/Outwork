@@ -3,13 +3,13 @@ const router = express.Router();
 
 const auth = require('./auth');
 const Job = require('../models/job');
-const ja = require('./jobapplicants');
+const ja = require('./jobapplication');
 
 router.get('/', auth.checkIfAuthenticated, async (req, res) => {
     const jobs = await Job.find({});
-    var job_applicants = await ja.getAllJobApplicants(jobs);
+    var job_applications = await ja.getAllJobApplications(jobs, req.user.username);
     jobs.sort((a, b) => b.postDate - a.postDate);
-    res.render('index', { job: new Job(), jobs: jobs, username: req.user.username, job_applicants: job_applicants});
+    res.render('index', { job: new Job(), jobs: jobs, username: req.user.username, job_applications: job_applications});
 });
 
 router.delete('/logout', (req, res) => {
