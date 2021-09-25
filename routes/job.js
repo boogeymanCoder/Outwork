@@ -4,7 +4,7 @@ const router = express.Router();
 const Job = require('../models/job');
 const Application = require('../models/application');
 const auth = require("./auth");
-const Account = require('../models/account');
+const ja = require('./jobapplicants');
 
 // TODO add route job/invitation
 // TODO edit application message (update time on edit) "modal"
@@ -33,10 +33,16 @@ router.get('/view/:job_id', async (req, res) => {
     const job = await Job.findById(req.params.job_id);
     const applications = await Application.find({ jobId: job.id });
     applications.sort((a, b) => b.time - a.time);
+    const job_applicants = await ja.getJobApplicants(job);
     if (job.employer === req.user.username) {
         res.render('job/edit_job', { job: job, applications: applications });
     } else {
-        res.render('job/view_job', { job: job, applications: applications, username: req.user.username });
+        res.render('job/view_job', {
+            job: job,
+            applications: applications,
+            username: req.user.username,
+            job_applicants: job_applicants
+        });
     }
 });
 
@@ -66,7 +72,6 @@ router.patch('/update', async (req, res) => {
 });
 
 router.post('/apply/:job_id', async (req, res) => {
-    console.log(req.user);
     const job = await Job.findById(req.params.job_id);
 
     if (job === null) {

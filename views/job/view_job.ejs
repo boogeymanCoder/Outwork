@@ -3,7 +3,11 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <%- include("../layouts/_flash_message") %>
-            <%- include("../layouts/job/_job_view") %>
+            <% if (job_applicants.includes(username)) { %>
+                <%- include("../layouts/job/_job_view_applied") %>
+            <% } else { %>
+                <%- include("../layouts/job/_job_view") %>
+            <% } %>
             <%- include("./_view_applications") %>
         </div>
         <div class="col-md-2"></div>
