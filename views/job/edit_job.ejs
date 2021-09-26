@@ -7,7 +7,7 @@
                 <input type="hidden" name="job_id" value="<%= job.id %>">
                 <div class="card mb-3">
                     <%- include("../layouts/job/job_fields/_job_field_header") %>
-                    <%- include("../layouts/job/job_fields/_job_field_body") %>
+                    <%- include("../layouts/job/job_fields/_job_field_body", { job: job }) %>
                     <div class="card-footer">
                         <input type="submit" class="btn btn-dark float-end" value="Update">
                     </div>
