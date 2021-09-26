@@ -17,7 +17,7 @@ function checkIfNotAuthenticated(req, res, next) {
 }
 
 function checkPasswordStrength(password) {
-    const regex = new RegExp('^$|((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,})');
+    const regex = new RegExp('^$||((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,})');
     return regex.test(password);
 }
 
