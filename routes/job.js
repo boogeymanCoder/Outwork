@@ -8,9 +8,6 @@ const ja = require('./jobapplication');
 
 // TODO add route job/invitation
 // TODO edit application message (update time on edit) "modal"
-// TODO quit job
-// TODO close job
-// TODO should only be able to apply once
 
 router.all('*', auth.checkIfAuthenticated);
 
@@ -75,10 +72,15 @@ router.patch('/update', async (req, res) => {
 
 router.post('/apply/:job_id', async (req, res) => {
     const job = await Job.findById(req.params.job_id);
-
     if (job === null) {
         req.flash('error', 'Job not found');
         return res.redirect('/');
+    }
+
+    const existingApplication = await Application.findOne({employee: req.user.username, jobId: job.id});
+    if (existingApplication !== null) {
+        req.flash('error', 'Already applied for this job');
+        return res.redirect(`/job/view/${job.id}`);
     }
 
     const application = new Application();
