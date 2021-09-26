@@ -39,8 +39,6 @@ router.patch('/update', async (req, res) => {
         if (newpass1 == newpass2) {
             //check password at backend as well
             //prevents registering weak passwords by edditing on element inspector
-            console.log(auth.checkPasswordStrength(newpass1));
-            console.log(newpass1);
             if (!auth.checkPasswordStrength(newpass1)) {
                 req.flash('error', 'Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character, and is at least eight characters long');
                 return res.redirect('/profile');
