@@ -20,67 +20,90 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-async function sendVerificationMail(receiver, otp, req) {
-    const link = `${ req.protocol }://${ req.headers.host }/verify`;
-    const mailHtml = await ejs.renderFile(__dirname + '/../views/mail/verify_mail.ejs', {
-        link: link,
-        otp: otp
-    });
+function sendVerificationMail(receiver, otp, req) {
+    return new Promise(async (resolve, reject) => {
+        const link = `${ req.protocol }://${ req.headers.host }/verify`;
+        const mailHtml = await ejs.renderFile(__dirname + '/../views/mail/verify_mail.ejs', {
+            link: link,
+            otp: otp
+        });
 
-    const mailOptions = {
-        from: process.env.USER,
-        to: receiver,
-        subject: 'Validate Outwork Account',
-        html: mailHtml 
-    }
-
-    await transporter.sendMail(mailOptions, (err, info) => {
-        if (err) {
-            console.log('Error: ', err)
-        } else {
-            console.log('Success: ', info)
+        const mailOptions = {
+            from: process.env.USER,
+            to: receiver,
+            subject: 'Validate Outwork Account',
+            html: mailHtml 
         }
-        transporter.close()
+
+        await transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.log('Verification Email Not Sent!');
+                console.log('Error: ', err);
+                return reject();
+            }
+            
+            console.log('Success: ', info);
+            transporter.close();
+            resolve();
+        });
     });
 }
 
-async function sendRecoveryMail(receiver, otp, id, req) {
-    const link = `${ req.protocol }://${ req.headers.host }/recover/${ id }/otp`;
-    const mailHtml = await ejs.renderFile(__dirname + '/../views/mail/recover_mail.ejs', {
-        link: link,
-        otp: otp
-    });
-
-    const mailOptions = {
-        from: process.env.USER,
-        to: receiver,
-        subject: 'Recover Outwork Account',
-        html: mailHtml 
-    }
-
-    await transporter.sendMail(mailOptions, (err, info) => {
-        if (err) throw err;
-        console.log('Recovery Email Sent!');
+function sendRecoveryMail(receiver, otp, id, req) {
+    return new Promise(async (resolve, reject) => {
+        const link = `${ req.protocol }://${ req.headers.host }/recover/${ id }/otp`;
+        const mailHtml = await ejs.renderFile(__dirname + '/../views/mail/recover_mail.ejs', {
+            link: link,
+            otp: otp
+        });
+    
+        const mailOptions = {
+            from: process.env.USER,
+            to: receiver,
+            subject: 'Recover Outwork Account',
+            html: mailHtml 
+        }
+    
+        await transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.log('Recovery Email Not Sent!');
+                console.log('Error: ', err);
+                return reject();
+            }
+    
+            console.log('Recovery Email Sent!');
+            transporter.close();
+            resolve();
+        });
     });
 }
 
-async function sendNewPassMail(receiver, pass, req) {
-    const link = `${ req.protocol }://${ req.headers.host }/login`;
-    const mailHtml = await ejs.renderFile(__dirname + '/../views/mail/newpass_mail.ejs', {
-        link: link,
-        pass: pass
-    });
+function sendNewPassMail(receiver, pass, req) {
+    return new Promise(async (resolve, reject) => {
+        const link = `${ req.protocol }://${ req.headers.host }/login`;
+        const mailHtml = await ejs.renderFile(__dirname + '/../views/mail/newpass_mail.ejs', {
+            link: link,
+            pass: pass
+        });
 
-    const mailOptions = {
-        from: process.env.USER,
-        to: receiver,
-        subject: 'Outwork Account New Password',
-        html: mailHtml 
-    }
+        const mailOptions = {
+            from: process.env.USER,
+            to: receiver,
+            subject: 'Outwork Account New Password',
+            html: mailHtml 
+        }
 
-    await transporter.sendMail(mailOptions, (err, info) => {
-        if (err) throw err;
-        console.log('New Password Sent!');
+        await transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                console.log('New Password Not Sent!');
+                console.log('Error: ', err);
+                return reject();
+            }
+
+            console.log('New Password Sent!');
+            transporter.close();
+            resolve();
+        });
     });
 }
 

@@ -8,26 +8,32 @@ const mail = require('./mail');
 const Otp = require('../models/otp');
 const auth = require('./auth');
 
-async function recoveryMailer(account, req){
-    const now = new Date();
-    now.setMinutes(now.getMinutes() + 15);
+function recoveryMailer(account, req){
+    return new Promise(async (resolve, reject) => {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() + 15);
 
-    var otp = await Otp.findOne({
-        accountId: account.id,
-        type: 'recovery'
-    });
-
-    if (otp == null) {
-        otp = new Otp({
+        var otp = await Otp.findOne({
             accountId: account.id,
-            pin: otpGenerator.generate(),
-            type: 'recovery',
-            until: now
+            type: 'recovery'
         });
-    }
-    
-    await mail.sendRecoveryMail(account.email, otp.pin, account.id, req);
-    await otp.save();
+
+        if (otp == null) {
+            otp = new Otp({
+                accountId: account.id,
+                pin: otpGenerator.generate(),
+                type: 'recovery',
+                until: now
+            });
+        }
+        
+        await mail.sendRecoveryMail(account.email, otp.pin, account.id, req)
+            .then(async () => {
+                await otp.save();
+                resolve();
+            })
+            .catch(() => reject());
+    });
 }
 
 router.all('*', auth.checkIfNotAuthenticated);
@@ -47,9 +53,9 @@ router.post('/', async (req, res) => {
         });
     }
 
-    await recoveryMailer(account, req);
-
-    req.flash('info', 'Sending recovery OTP to your email');
+    await recoveryMailer(account, req)
+    .then(() => req.flash('info', 'Recovery OTP sent'))
+    .catch(()=>  req.flash('error', 'Recovery OTP not sent'));
     res.redirect(`/recover/${ account.id }/otp`);
 });
 
@@ -98,16 +104,17 @@ router.post('/:id/otp', async (req, res) => {
         return res.redirect('/');
     }
 
-    const password = otpGenerator.generate(6);
+    const password = otpGenerator.generate();
 
     account.password = await bcrypt.hash(password, 10);
     await account.save();
 
-    await mail.sendNewPassMail(account.email, password, req);
-
-    await otp.delete();
-
-    req.flash('info', 'Sending new password to your email');
+    await mail.sendNewPassMail(account.email, password, req)
+    .then(async () => {
+        await otp.delete();
+        req.flash('info', 'New password email sent');
+    })
+    .catch(() => req.flash('error', 'New password email not sent'));
     res.redirect('/login');
 });
 

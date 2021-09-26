@@ -31,14 +31,17 @@ router.post('/', async (req, res, next) => {
     if (otp == null) {
         otp = new Otp({
             accountId: account.id,
-            pin: otpGenerator.generate(6),
+            pin: otpGenerator.generate(),
             type: 'verification'
         });
+        await otp.save();
     }
 
-    await otp.save();
-    await mail.sendVerificationMail(account.email, otp.pin, req);
-    req.flash('info', 'Sending verification OTP to your email');
+    await mail.sendVerificationMail(account.email, otp.pin, req)
+    .then(() => {
+        req.flash('info', 'Verification OTP email sent');
+    })
+    .catch(() => req.flash('error', 'Verification OTP email not sent'));
     next();
 }, passport.authenticate('local', {
     successRedirect: '/',

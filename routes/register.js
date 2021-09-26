@@ -58,17 +58,19 @@ router.post('/', async (req, res) => {
     await account.validate().then(async (val) => {
         const otp = new Otp({
             accountId: account.id,
-            pin: otpGenerator.generate(6),
+            pin: otpGenerator.generate(),
             type: 'verification'
         });
     
-        await mail.sendVerificationMail(account.email, otp.pin, req);
+        await mail.sendVerificationMail(account.email, otp.pin, req).then(async () => {
+            req.flash('info', 'Verification OTP email sent');
+            account.password = await bcrypt.hash(req.body.password, 10);
+            await account.save();
+            await otp.save();
+        })
+        .catch(() => req.flash('error', 'Verification OTP email not sent, registration denied'));
     
-        account.password = await bcrypt.hash(req.body.password, 10);
-        await account.save();
-        await otp.save();
         
-        req.flash('info', `Please enter OTP sent to ${ account.email }`);
         res.redirect('/verify');
     }).catch(err => {
         var errorMessage = '';
