@@ -1,7 +1,13 @@
 <!-- Modal -->
+<script>
+    function updateApplication(application_id) {
+        const form = document.getElementById("applicationEditForm");
+        form.action=`/application/update/${application_id}?_method=PATCH`;
+    }
+</script>
 <div class="modal fade" id="applicationEditModal" tabindex="-1" aria-labelledby="applicationEditModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form method="POST" action="#" class="needs-validation" novalidate>
+        <form method="POST" action="#" class="needs-validation" id="applicationEditForm" novalidate>
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="applicationEditModalLabel">Edit Application Message</h5>
@@ -16,7 +22,7 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark disabled">Update</button>
+                    <button type="submit" class="btn btn-dark">Update</button>
                 </div>
             </div>
         </form>

@@ -4,6 +4,6 @@
         <form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
             <input type="submit" class="btn btn-dark float-end" value="Cancel">
         </form>
-        <input type="button" class="btn btn-dark me-2 float-end" value="Edit"  data-bs-toggle="modal" data-bs-target="#applicationEditModal">
+        <input type="button" class="btn btn-dark me-2 float-end" value="Edit" onclick="updateApplication('<%= application.id %>')" data-bs-toggle="modal" data-bs-target="#applicationEditModal">
     </div>
 </div>
