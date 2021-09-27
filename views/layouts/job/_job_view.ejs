@@ -4,7 +4,7 @@
     <div class="card-footer">
         <form method="POST" action="/job/apply/<%= job.id %>" class="needs-validation" novalidate>
             <div class="form-group">
-                <textarea name="message" class="form-control" placeholder="Message" required></textarea>
+                <textarea name="message" class="form-control" placeholder="Message" rows="1" required></textarea>
                 <div class="valid-feedback"></div>
                 <div class="invalid-feedback">Please enter application message</div>
             </div>
