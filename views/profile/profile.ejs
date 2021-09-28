@@ -1,16 +1,16 @@
-<div class="container-sm animate__animated animate__bounceInDown">
+<div class="container-sm">
     <div class="row pt-2">
         <div class="col">
             <h2>Profile</h2>
         </div>
-        <div class="col">
+        <div class="col-auto animate__animated animate__slideInDown">
             <form action="/logout?_method=DELETE" method="POST">
                 <button class="btn float-end" type="submit"><em class="fas fa-sign-out-alt fa-lg"></em></button>
             </form>
         </div>
     </div>
     <div class="row mt-2">
-        <div class="col-lg-4">
+        <div class="col-lg-4 animate__animated animate__bounceInLeft">
             <%- include("../layouts/_flash_message") %> 
             <form method="POST" action="/profile/update?_method=PATCH" class="needs-validation" novalidate>
                 <label class="form-label" for="username">Username:</label>
@@ -39,7 +39,7 @@
                 <%- include("../layouts/data_fields/_zipPostalCode_field") %>
                 <%- include("../layouts/data_fields/_country_field") %>
                 <%- include("../layouts/data_fields/_newpass_field") %>
-                <input type="submit" class="btn btn-dark float-end animate__animated animate__rubberBand" value="Update">
+                <input type="submit" class="btn btn-dark float-end animate__animated animate__rubberBand animate__delay-2s" value="Update">
             </form>
         </div>
         <div class="col-lg-8 pt-3">

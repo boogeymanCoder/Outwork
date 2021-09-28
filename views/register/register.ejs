@@ -1,8 +1,8 @@
-<div class="container-sm animate__animated animate__bounceInDown">
+<div class="container-sm">
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-6 pt-4">
-            <div class="container-fluid">
+            <div class="container-fluid animate__animated animate__zoomInDown">
                 <h1 class="text-center ">Register</h1>
                 <p class="text-center animate__animated animate__rubberBand animate__delay-2s">
                     <strong>Already a member?
@@ -10,7 +10,7 @@
                     </strong>
                 </p>
             </div>
-            <form method="POST" action="register" class="needs-validation" novalidate>
+            <form method="POST" action="register" class="needs-validation animate__animated animate__zoomInDown" novalidate>
                 <%- include("../layouts/_flash_message") %>
                 <%- include("../layouts/data_fields/_username_field") %>
                 <%- include("../layouts/data_fields/_firstname_field") %>
