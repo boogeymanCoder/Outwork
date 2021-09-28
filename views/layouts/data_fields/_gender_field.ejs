@@ -1,14 +1,16 @@
 <div class="form-group">
-    <label class="form-label" for="gender">Gender:</label>
-    <select class="form-select mb-2" name="gender">
-        <% if(account.gender == 'Male') { %>
-            <option value="Male" selected>Male</option>
-            <option value="Female">Female</option>
-        <% } else { %>
-            <option value="Male">Male</option>
-            <option value="Female" selected>Female</option>
-        <% } %>
-    </select>
-    <div class="valid-feedback"></div>
-    <div class="invalid-feedback">Please enter your email.</div>
+    <div class="form-floating mb-3">
+        <select class="form-select mb-2" name="gender">
+            <% if(account.gender == 'Male') { %>
+                <option value="Male" selected>Male</option>
+                <option value="Female">Female</option>
+            <% } else { %>
+                <option value="Male">Male</option>
+                <option value="Female" selected>Female</option>
+            <% } %>
+        </select>
+        <div class="valid-feedback"></div>
+        <div class="invalid-feedback">Please enter your email.</div>
+        <label class="form-label text-secondary" for="gender"><small>Gender</small></label>
+    </div>
 </div>

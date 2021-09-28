@@ -7,10 +7,12 @@
 
             <form method="POST" action="/recover/<%= id %>/otp" class="needs-validation" novalidate>
                 <div class="form-group">
-                    <label class="form-label" for="otp">Recovery OTP:</label>
-                    <input  class="form-control mb-2" type="text" name="otp" placeholder="Recovery OTP" value="<%= otp %>" required>
-                    <div class="valid-feedback"></div>
-                    <div class="invalid-feedback">Please enter your Verification OTP.</div>
+                    <div class="form-floating mb-3">
+                        <input  class="form-control mb-2" type="text" name="otp" placeholder="Recovery OTP" value="<%= otp %>" required>
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback">Please enter your Verification OTP.</div>
+                        <label class="form-label text-secondary" for="otp"><small>Recovery OTP</small></label>
+                    </div>
                 </div>
                 <input class="btn btn-dark float-end" type="submit" value="Send New Password">
             </form>

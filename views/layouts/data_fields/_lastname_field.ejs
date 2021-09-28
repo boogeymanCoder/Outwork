@@ -1,6 +1,8 @@
 <div class="form-group">
-    <label class="form-label" for="lastname">Lastname:</label>
-    <input  class="form-control mb-2" type="text" name="lastname" placeholder="Lastname" value="<%= account.lastname %>" required>
-    <div class="valid-feedback"></div>
-    <div class="invalid-feedback">Please enter your lastname.</div>
+    <div class="form-floating mb-3">
+        <input  class="form-control mb-2" type="text" name="lastname" placeholder="Lastname" value="<%= account.lastname %>" required>
+        <div class="valid-feedback"></div>
+        <div class="invalid-feedback">Please enter your lastname.</div>
+        <label class="form-label text-secondary" for="lastname"><small>Lastname</small></label>
+    </div>
 </div>

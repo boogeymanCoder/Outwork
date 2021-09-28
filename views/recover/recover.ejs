@@ -9,10 +9,12 @@
 
             <form method="POST" action="/recover" class="needs-validation" novalidate>
                 <div class="form-group">
-                    <label class="form-label" for="email">Registered Email:</label>
-                    <input  class="form-control mb-2" type="email" name="email" placeholder="Registered Email" value="<%= email %>" required>
-                    <div class="valid-feedback"></div>
-                    <div class="invalid-feedback">Please enter your registered email.</div>
+                    <div class="form-floating mb-3">
+                        <input  class="form-control mb-2" type="email" name="email" placeholder="Registered Email" value="<%= email %>" required>
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback">Please enter your registered email.</div>
+                        <label class="form-label text-secondary" for="email"><small>Registered Email</small></label>
+                    </div>
                 </div>
                 
                 <input class="btn btn-dark float-end" type="submit" value="Send OTP">
@@ -22,3 +24,4 @@
         <div class="col-lg-3"></div>
     </div>
 </div>
+<!-- TODO check otp validity before sending -->

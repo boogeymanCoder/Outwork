@@ -1,6 +1,8 @@
 <div class="form-group">
-    <label class="form-label" for="addressLine1">Address:</label>
-    <input  class="form-control mb-2" type="text" name="addressLine1" placeholder="Address" value="<%= account.addressLine1 %>" required>
-    <div class="valid-feedback"></div>
-    <div class="invalid-feedback">Please enter your address.</div>
+    <div class="form-floating mb-3">
+        <input  class="form-control mb-2" type="text" name="addressLine1" placeholder="Address" value="<%= account.addressLine1 %>" required>
+        <div class="valid-feedback"></div>
+        <div class="invalid-feedback">Please enter your address.</div>
+        <label class="form-label text-secondary" for="addressLine1"><small>Address</small></label>
+    </div>
 </div>

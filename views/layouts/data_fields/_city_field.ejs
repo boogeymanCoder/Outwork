@@ -1,6 +1,9 @@
 <div class="form-group">
-    <label class="form-label" for="city">City:</label>
-    <input  class="form-control mb-2" type="text" name="city" placeholder="City" value="<%= account.city %>" required>
-    <div class="valid-feedback"></div>
-    <div class="invalid-feedback">Please enter your city.</div>
+    <div class="form-floating mb-3">
+        <input  class="form-control mb-2" type="text" name="city" placeholder="City" value="<%= account.city %>" required>
+        <div class="valid-feedback"></div>
+        <div class="invalid-feedback">Please enter your city.</div>
+        <label class="form-label text-secondary" for="city"><small>City</small></label>
+    </div>
+    
 </div>

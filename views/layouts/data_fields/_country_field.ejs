@@ -1,6 +1,8 @@
 <div class="form-group">
-    <label class="form-label" for="country">Country:</label>
-    <input  class="form-control mb-2" type="text" name="country" placeholder="Country" value="<%= account.country %>" required>
-    <div class="valid-feedback"></div>
-    <div class="invalid-feedback">Please enter your country.</div>
+    <div class="form-floating mb-3">
+        <input  class="form-control mb-2" type="text" name="country" placeholder="Country" value="<%= account.country %>" required>
+        <div class="valid-feedback"></div>
+        <div class="invalid-feedback">Please enter your country.</div>
+        <label class="form-label text-secondary" for="country"><small>Country</small></label>
+    </div>
 </div>
