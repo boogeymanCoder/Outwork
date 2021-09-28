@@ -5,7 +5,7 @@ const auth = require('./auth');
 const Job = require('../models/job');
 const ja = require('./jobapplication');
 
-router.get('/', auth.checkIfAuthenticated, async (req, res) => {
+router.get('/', auth.homeCheckIfAuthenticated, async (req, res) => {
     const jobs = await Job.find({});
     var job_applications = await ja.getAllJobApplications(jobs, req.user.username);
     jobs.sort((a, b) => b.postDate - a.postDate);

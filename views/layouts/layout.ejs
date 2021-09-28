@@ -133,15 +133,18 @@
                             <em class="fab fa-wpexplorer fa-lg"></em> More
                         </a>
                     </li>
-                    <li class="nav-item animate__animated animate__flipInX d-inline">
-                        <a class="nav-link" href="#">
-                            <em class="fas fa-sign-in-alt fa-lg"></em> Login
+                    <li class="nav-item animate__animated animate__flipInX">
+                        <a class="nav-link" id="nav-login-link" href="/login">
+                            <em class="fas fa-sign-in-alt fa-lg" id="nav-login_ico"></em> Login
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <% if(locals.auth === true || locals.auth === undefined) { %>
+        <%- include("./_hide_nav_login") %>
+    <% } %>
     
     <%- body %>
     <footer class="container-fluid text-center  animate__animated animate__fadeInUp">
