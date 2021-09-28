@@ -1,10 +1,10 @@
-<div class="card mb-3 mt-3 animate__animated animate__pulse">
+<div class="card mb-3 mt-3 animate__animated animate__pulse shadow-sm">
     <%- include("./job_view/_job_header") %>
     <%- include("./job_view/_job_body") %>
     <div class="card-footer">
         <form method="POST" action="/job/apply/<%= job.id %>" class="needs-validation" novalidate>
             <div class="form-group">
-                <textarea name="message" class="form-control" placeholder="Message" rows="1" required></textarea>
+                <textarea name="message" class="form-control shadow-sm" placeholder="Message" rows="1" required></textarea>
                 <div class="valid-feedback"></div>
                 <div class="invalid-feedback">Please enter application message</div>
             </div>
