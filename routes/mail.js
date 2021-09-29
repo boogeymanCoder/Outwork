@@ -31,7 +31,7 @@ function sendVerificationMail(receiver, otp, req) {
         const mailOptions = {
             from: process.env.USER,
             to: receiver,
-            subject: 'Validate Outwork Account',
+            subject: 'Verify Outwork Account',
             html: mailHtml 
         }
 
