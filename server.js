@@ -83,6 +83,10 @@ app.use('/public', publicRouter);
 app.use('/profile', profileRouter);
 app.use('/', indexRouter);
 
+// Page dependencies
+app.use('/css', express.static(__dirname + '/node_modules/animate.css')); // redirect animate.css CSS
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect bootstrap CSS
 
 // Handle 404
 app.use(function(req, res) {
