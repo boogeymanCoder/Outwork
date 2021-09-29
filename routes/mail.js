@@ -31,7 +31,7 @@ function sendVerificationMail(receiver, otp, req) {
         const mailOptions = {
             from: process.env.USER,
             to: receiver,
-            subject: 'Verify Outwork Account',
+            subject: 'Verify Taskme Account',
             html: mailHtml 
         }
 
@@ -60,7 +60,7 @@ function sendRecoveryMail(receiver, otp, id, req) {
         const mailOptions = {
             from: process.env.USER,
             to: receiver,
-            subject: 'Recover Outwork Account',
+            subject: 'Recover Taskme Account',
             html: mailHtml 
         }
     
@@ -89,7 +89,7 @@ function sendNewPassMail(receiver, pass, req) {
         const mailOptions = {
             from: process.env.USER,
             to: receiver,
-            subject: 'Outwork Account New Password',
+            subject: 'Taskme Account New Password',
             html: mailHtml 
         }
 

@@ -1,4 +1,4 @@
-# Outwork
+# Taskme
 A one time request hiring site
 
 To understand the code the developer suggests the following tutorial:<br/>
@@ -17,10 +17,15 @@ run "npm install" without quotes to install project dependencies <br/>
 
 Step 4 (Setup environmental variables): <br/>
 create a file with filename ".env" with content: <br/>
-DATABASE_URL = mongodb://localhost/outwork <br/>
+DATABASE_URL = mongodb://localhost/outwork <br/> 
+<!-- TODO change db name  -->
+<!-- TODO change repo name  -->
+<!-- TODO change heroku link  -->
+<!-- TODO change support email  -->
 SESSION_SECRET = // 10 character long string for session authentication <br/>
 USER, CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN of google OAuth 2.0 credential https://console.cloud.google.com/apis/credentials<br/>
 authorized redirect uri: https://developers.google.com/oauthplayground<br/>
+authorized api: https://mail.google.com
 gmail google OAuth 2.0 tutorial: https://youtu.be/18qA61bpfUs<br/>
 
   !Reminder: remember to not remove ".env" from configure .gitignore file to avoid security problems <br/>
