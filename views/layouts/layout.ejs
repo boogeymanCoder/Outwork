@@ -10,12 +10,9 @@
     <link rel="apple-touch-icon" href="icon/taskme@4x.png.png">
     <link rel="manifest" href="/manifest.webmanifest"> 
 
-    <link href="/css/animate.min.css" rel="stylesheet">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/bootstrap-icons.css" rel="stylesheet">
-
+    <link href="/css/bootstrap.min.css" rel="stylesheet" defer>
     
-    <style>
+    <style defer>
         body {
             font: 400 15px/1.8 "Lato", sans-serif;
         }
@@ -158,6 +155,9 @@
     </footer>
     <!-- initialized dynamic text areas -->
     <%- include("./data_fields/_textarea_setup") %>
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    
+    <link href="/css/animate.min.css" rel="stylesheet" defer>
+    <link href="/css/bootstrap-icons.css" rel="stylesheet" defer>
+    <script src="/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
