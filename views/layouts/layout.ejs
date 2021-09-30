@@ -109,7 +109,7 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item animate__animated animate__flipInX">
+                    <li class="nav-item animate__animated animate__flipInX d-none" id="nav-profile">
                         <a class="nav-link" href="/profile" >
                             <em class="bi bi-person-fill fa-lg"></em> Profile
                         </a>
@@ -145,6 +145,9 @@
     </nav>
     <% if(locals.auth === true || locals.auth === undefined) { %>
         <%- include("./_hide_nav_login") %>
+    <% } %>
+    <% if(locals.auth === true || locals.auth === undefined) { %>
+        <%- include("./_show_nav_profile") %>
     <% } %>
     
     <%- body %>

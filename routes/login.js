@@ -11,7 +11,9 @@ const auth = require('./auth');
 router.all('*', auth.checkIfNotAuthenticated);
 
 router.get('/', (req, res) => {
-    res.render('login/login');
+    res.render('login/login', {
+        auth: req.isAuthenticated()
+    });
 });
 
 router.post('/', async (req, res, next) => {
