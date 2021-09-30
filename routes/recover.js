@@ -44,7 +44,8 @@ router.all('*', auth.checkIfNotAuthenticated);
 
 router.get('/', (req, res) => {
     res.render('recover/recover', {
-        email: ''
+        email: '',
+        auth: req.isAuthenticated()
     });
 });
 
@@ -66,7 +67,8 @@ router.post('/', async (req, res) => {
 router.get('/:id/otp', (req, res) => {
     res.render('recover/recover_otp', {
         otp: '',
-        id: req.params.id
+        id: req.params.id,
+        auth: req.isAuthenticated()
     });
 });
 

@@ -9,7 +9,8 @@ router.all('*', auth.checkIfNotAuthenticated);
 
 router.get('/', async (req, res) => {
     res.render('verify/verify', {
-        otp: ''
+        otp: '',
+        auth: req.isAuthenticated()
     });
 });
 
