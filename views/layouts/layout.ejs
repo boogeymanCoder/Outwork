@@ -149,8 +149,6 @@
     </nav>
     <% if(locals.auth === true || locals.auth === undefined) { %>
         <%- include("./_hide_nav_login") %>
-    <% } %>
-    <% if(locals.auth === true || locals.auth === undefined) { %>
         <%- include("./_show_nav_profile") %>
     <% } %>
     
