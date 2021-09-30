@@ -6,13 +6,13 @@
         <label class="form-label text-secondary" for="name"><small>Location</small></label>
     </div>
     <div class="form-floating mb-3">
-        <input  class="form-control mb-2 shadow-sm" type="text" name="skills" placeholder="Required Skills" value="<%= job.skills %>" required>
+        <input class="form-control mb-2 shadow-sm" type="text" name="skills" placeholder="Required Skills" value="<%= job.skills %>" required>
         <div class="valid-feedback"></div>
         <div class="invalid-feedback">Please enter required skills.</div>
         <label class="form-label text-secondary" for="name"><small>Required Skills</small></label>
     </div>
     <div class="form-floating">
-        <textarea class="form-control shadow-sm mb-3" id="details" name="details" rows="1" placeholder="Details" required><%= job.details %></textarea>
+        <textarea class="form-control shadow-sm" name="details" rows="1" placeholder="Details" required><%= job.details %></textarea>
         <div class="valid-feedback"></div>
         <div class="invalid-feedback">Please enter details.</div>
         <label class="form-label text-secondary" for="details"><small>Details</small></label>

@@ -14,12 +14,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <textarea name="message" class="form-control" placeholder="Message" rows="1" required></textarea>
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback">Please enter application message</div>
-                        </div>
+                    <div class="form-floating">
+                        <textarea class="form-control shadow-sm pb-5" rows="0" id="message" name="message" placeholder="Message" onkeypress="this.classList.remove('pb-5');" required></textarea>
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback">Please enter application message</div>
+                        <label class="form-label text-secondary" for="details"><small>Details</small></label>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-dark">Update</button>

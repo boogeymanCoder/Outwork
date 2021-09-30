@@ -3,10 +3,11 @@
     <%- include("./job_view/_job_body") %>
     <div class="card-footer">
         <form method="POST" action="/job/apply/<%= job.id %>" class="needs-validation" novalidate>
-            <div class="form-group">
+            <div class="form-floating"> 
                 <textarea name="message" class="form-control shadow-sm mb-2" placeholder="Message" rows="1" required></textarea>
                 <div class="valid-feedback"></div>
                 <div class="invalid-feedback">Please enter application message</div>
+                <label class="form-label text-secondary" for="message"><small>Message</small></label>
             </div>
             <input class="btn btn-dark float-end mt-2" type="submit" id="apply-button" value="Apply">
         </form>
