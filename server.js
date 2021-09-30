@@ -90,6 +90,7 @@ app.use('/', indexRouter);
 app.use('/css', express.static(__dirname + '/node_modules/animate.css')); // redirect animate.css CSS
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect bootstrap CSS
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap-icons/font'));// redirect bootstrap icons
 
 // Handle 404
 app.use(function(req, res) {

@@ -8,16 +8,11 @@
     <title>Taskme</title>
     
     <link rel="apple-touch-icon" href="icon/taskme@4x.png.png">
-    <!-- change png names -->
     <link rel="manifest" href="/manifest.webmanifest"> 
-    <!-- change png names -->
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"  integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    
     <link href="/css/animate.min.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
 
     
     <style>
@@ -117,32 +112,32 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link" href="/profile" >
-                            <em class="fas fa-user fa-lg"></em> Profile
+                            <em class="bi bi-person-fill fa-lg"></em> Profile
                         </a>
                     </li>   
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link" href="/public/insights">
-                            <em class="fas fa-binoculars fa-lg"></em> Insights
+                            <em class="bi bi-binoculars-fill fa-lg"></em> Insights
                         </a>
                     </li>
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link disabled" href="#">
-                            <em class="fas fa-people-carry fa-lg"></em> Support
+                            <em class="bi bi-headset fa-lg"></em> Support
                         </a>
                     </li>
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link disabled" id="installer" href="javascript:install()">
-                            <em class="fas fa-download fa-lg"></em></em> Install
+                            <em class="bi bi-download fa-lg"></em></em> Install
                         </a>
                     </li>
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link disabled" href="#">
-                            <em class="fab fa-wpexplorer fa-lg"></em> More
+                            <em class="bi bi-menu-button-wide-fill fa-lg"></em> More
                         </a>
                     </li>
                     <li class="nav-item animate__animated animate__flipInX" id="nav-login">
                         <a class="nav-link" href="/login">
-                            <em class="fas fa-sign-in-alt fa-lg"></em> Login
+                            <em class="bi bi-box-arrow-in-right fa-lg"></em> Login
                         </a>
                     </li>
                 </ul>
@@ -155,11 +150,11 @@
     
     <%- body %>
     <footer class="container-fluid text-center  animate__animated animate__fadeInUp">
-        <em class="fab fa-facebook-f"></em>
-        <em class="fab fa-twitter"></em>
-        <em class="fab fa-instagram"></em>
+        <em class="bi bi-facebook"></em>
+        <em class="bi bi-twitter"></em>
+        <em class="bi bi-instagram"></em>
         <br>
-        <em class="far fa-copyright"></em>2021 by <a class="text-secondary" href="/">Taskme</a>
+        <em class="bi bi-badge-cc fa-lg"> </em>2021 by <a class="text-secondary" href="/">Taskme</a>
     </footer>
     <!-- initialized dynamic text areas -->
     <%- include("./data_fields/_textarea_setup") %>
