@@ -32,6 +32,10 @@
         .title {
             letter-spacing: 10px;
         }
+
+        .bi {
+            font-size: 1.5rem;
+        }
     </style>
 
     <!-- initialize service worker -->
@@ -111,32 +115,32 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item animate__animated animate__flipInX d-none" id="nav-profile">
                         <a class="nav-link" href="/profile" >
-                            <em class="bi bi-person-fill fa-lg"></em> Profile
+                            <em class="bi bi-person-fill"></em> Profile
                         </a>
                     </li>   
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link" href="/public/insights">
-                            <em class="bi bi-binoculars-fill fa-lg"></em> Insights
+                            <em class="bi bi-binoculars-fill"></em> Insights
                         </a>
                     </li>
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link disabled" href="#">
-                            <em class="bi bi-headset fa-lg"></em> Support
+                            <em class="bi bi-headset"></em> Support
                         </a>
                     </li>
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link disabled" id="installer" href="javascript:install()">
-                            <em class="bi bi-download fa-lg"></em></em> Install
+                            <em class="bi bi-download"></em></em> Install
                         </a>
                     </li>
                     <li class="nav-item animate__animated animate__flipInX" id="nav-login">
                         <a class="nav-link" href="/login">
-                            <em class="bi bi-door-closed-fill fa-lg"></em> Login
+                            <em class="bi bi-door-closed-fill"></em> Login
                         </a>
                     </li>
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link disabled" href="#">
-                            <em class="bi bi-menu-button-wide-fill fa-lg"></em> More
+                            <em class="bi bi-menu-button-wide-fill"></em> More
                         </a>
                     </li>
                 </ul>
@@ -156,7 +160,7 @@
         <em class="bi bi-twitter"></em>
         <em class="bi bi-instagram"></em>
         <br>
-        <em class="bi bi-badge-cc fa-lg"> </em>2021 by <a class="text-secondary" href="/">Taskme</a>
+        <em class="bi bi-badge-cc"> </em>2021 by <a class="text-secondary" href="/">Taskme</a>
     </footer>
     <!-- initialized dynamic text areas -->
     <%- include("./data_fields/_textarea_setup") %>
