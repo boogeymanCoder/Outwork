@@ -4,21 +4,25 @@ const bcrypt = require('bcrypt');
 const otpGenerator = require('otp-generator');
 
 const Account = require('../models/account');
-const mail = require('./mail');
+const mail = require('./mailer');
 const Otp = require('../models/otp');
 const auth = require('./auth');
 
 function recoveryMailer(account, req){
     return new Promise(async (resolve, reject) => {
         const now = new Date();
-        now.setMinutes(now.getMinutes() + 15);
 
         var otp = await Otp.findOne({
             accountId: account.id,
             type: 'recovery'
         });
 
-        if (otp == null) {
+        if (otp === null || (otp !== null && now > otp.until)) {
+            if (otp !== null && now > otp.until) {
+                await otp.delete();
+            }
+
+            now.setMinutes(now.getMinutes() + 15);
             otp = new Otp({
                 accountId: account.id,
                 pin: otpGenerator.generate(),
@@ -27,7 +31,7 @@ function recoveryMailer(account, req){
             });
         }
         
-        await mail.sendRecoveryMail(account.email, otp.pin, account.id, req)
+        await mail.sendRecoveryMail(account.email, otp, account.id, req)
             .then(async () => {
                 await otp.save();
                 resolve();
