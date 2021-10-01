@@ -34,7 +34,7 @@
         }
 
         .lg-icon {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
     </style>
 
@@ -114,10 +114,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item animate__animated animate__flipInX d-none" id="nav-profile">
-                        <a class="nav-link" href="/profile" >
+                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <em class="bi bi-person-fill lg-icon"></em> Profile
                         </a>
-                    </li>   
+                        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item disabled" href="#">Timeline</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Contacts</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Mail</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Invitation</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Notification</a></li>
+                            <li><a class="dropdown-item disabled" href="#">Logout</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item animate__animated animate__flipInX">
                         <a class="nav-link" href="/public/insights">
                             <em class="bi bi-binoculars-fill lg-icon"></em> Insights
@@ -153,7 +161,7 @@
     <% } %>
     
     <%- body %>
-    <footer class="container-fluid text-center  animate__animated animate__fadeInUp">
+    <footer class="container-fluid text-center animate__animated animate__fadeInUp" id="footer">
         <em class="bi bi-facebook"></em>
         <em class="bi bi-twitter"></em>
         <em class="bi bi-instagram"></em>
