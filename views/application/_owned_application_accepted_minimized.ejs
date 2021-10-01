@@ -1,6 +1,6 @@
 <div class="row align-items-end">
     <div class="col">
-        <p><%= application.message %><em class="float-end"><%= application.time.toLocaleString() %></em></p>
+        <p style="white-space: pre-wrap;"><%= application.message %><em class="float-end"><%= application.time.toLocaleString() %></em></p>
     </div>
     <div class="col-auto">
         <form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
