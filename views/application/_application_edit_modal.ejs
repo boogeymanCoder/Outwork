@@ -1,8 +1,13 @@
 <!-- Modal -->
 <script>
-    function updateApplication(application_id) {
+    function updateApplication(application_id, application_message) {
         const form = document.getElementById("applicationEditForm");
         form.action=`/application/update/${application_id}?_method=PATCH`;
+
+        const form_message = document.getElementById("modal_message");
+        form_message.value = application_message;
+        form_message.rows = application_message.split(/\r\n|\r|\n/).length;
+        form_message.classList.add("h-auto");
     }
 </script>
 <div class="modal fade" id="applicationEditModal" tabindex="-1" aria-labelledby="applicationEditModalLabel" aria-hidden="true">
@@ -15,7 +20,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-floating">
-                        <textarea class="form-control shadow-sm pb-5" rows="0" id="message" name="message" placeholder="Message" onkeypress="this.classList.remove('pb-5');" required></textarea>
+                        <textarea class="form-control shadow-sm h-auto" id="modal_message" name="message" placeholder="Message" required></textarea>
                         <div class="valid-feedback"></div>
                         <div class="invalid-feedback">Please enter application message</div>
                         <label class="form-label text-secondary" for="details"><small>Details</small></label>

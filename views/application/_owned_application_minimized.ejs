@@ -5,7 +5,7 @@
     <div class="col-auto">
         <div class="row">
             <div class="col-auto p-0">
-                <input type="button" class="btn btn-dark my-2 mx-1" value="Edit" onclick="updateApplication('<%= application.id %>')" data-bs-toggle="modal" data-bs-target="#applicationEditModal">
+                <input type="button" class="btn btn-dark my-2 mx-1" value="Edit" onclick="updateApplication('<%= application.id %>', `<%= application.message %>`)" data-bs-toggle="modal" data-bs-target="#applicationEditModal">
             </div>
             <div class="col-auto p-0">
                 <form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">

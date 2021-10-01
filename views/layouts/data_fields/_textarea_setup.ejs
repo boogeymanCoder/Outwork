@@ -8,6 +8,8 @@
     }
 
     function OnInput() {
+        this.classList.remove('h-auto');
+        this.rows = this.value.split(/\r\n|\r|\n/).length;
         this.style.height = "auto";
         this.style.height = (this.scrollHeight) + "px";
     }
