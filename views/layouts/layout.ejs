@@ -36,6 +36,14 @@
         .lg-icon {
             font-size: 1.5rem;
         }
+
+        .navbar-nav > li > .dropdown-menu a:active {
+            background-color: black;
+        }
+
+        .dropdown-item.active{
+            background-color: black;
+        }
     </style>
 
     <!-- initialize service worker -->
@@ -118,7 +126,7 @@
                             <em class="bi bi-person-fill lg-icon"></em> Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item disabled" href="#">Timeline</a></li>
+                            <li><a class="dropdown-item" href="/profile" id="profile-timeline">Timeline</a></li>
                             <li><a class="dropdown-item disabled" href="#">Contacts</a></li>
                             <li><a class="dropdown-item disabled" href="#">Mail</a></li>
                             <li><a class="dropdown-item disabled" href="#">Invitation</a></li>
@@ -161,9 +169,8 @@
     <% } %>
     
     <%- body %>
-    <% if (!locals.hideFooter) { %>
-        <%- include('./_footer') %>
-    <% } %>
+    
+    <%- include('./_footer') %>
     <!-- initialized dynamic text areas -->
     <%- include("./data_fields/_textarea_setup") %>
     
