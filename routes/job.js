@@ -7,8 +7,6 @@ const auth = require("./auth");
 const ja = require('./jobapplication');
 
 // TODO add route job/invitation
-// TODO edit application message (update time on edit) "modal"
-//TODO change job to task
 
 router.all('*', auth.checkIfAuthenticated);
 
