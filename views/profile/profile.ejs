@@ -2,18 +2,9 @@
     document.getElementById("profile-timeline").classList.add('active');
 </script>
 <div class="container-sm">
-    <div class="row pt-2 animate__animated animate__bounceInLeft">
-        <div class="col">
-            <h2>Profile</h2>
-        </div>
-        <div class="col-auto animate__animated animate__slideInDown">
-            <form action="/logout?_method=DELETE" method="POST">
-                <button class="btn float-end" type="submit"><em class="bi bi-door-open-fill lg-icon"></em></button>
-            </form>
-        </div>
-    </div>
     <div class="row mt-2">
-        <div class="col-lg-4 animate__animated animate__bounceInLeft">
+        <div class="col-lg-4 pt-3 animate__animated animate__bounceInLeft">
+            <h2>Profile</h2>
             <%- include("../layouts/_flash_message") %> 
             <form method="POST" action="/profile/update?_method=PATCH" class="needs-validation" novalidate>
                 <label class="form-label" for="username">Username:</label>

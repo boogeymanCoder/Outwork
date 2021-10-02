@@ -37,7 +37,7 @@
             font-size: 1.5rem;
         }
 
-        .navbar-nav > li > .dropdown-menu a:active {
+        .navbar-nav > li > .dropdown-menu .dropdown-item:active {
             background-color: black;
         }
 
@@ -133,7 +133,11 @@
                                 <li><a class="dropdown-item" href="/chat" id="profile-chat">Chat</a></li>
                                 <li><a class="dropdown-item disabled" href="#">Invitation</a></li>
                                 <li><a class="dropdown-item disabled" href="#">Notification</a></li>
-                                <li><a class="dropdown-item disabled" href="#">Logout</a></li>
+                                <li>
+                                    <form action="/logout?_method=DELETE" method="POST">
+                                        <button class="dropdown-item" type="submit">Logout</button>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item animate__animated animate__flipInX">
