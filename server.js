@@ -21,6 +21,7 @@ const registerRouter = require('./routes/register');
 const verifyRouter = require('./routes/verify');
 const recoverRouter = require('./routes/recover');
 const applicationRouter = require('./routes/application');
+const chatRouter = require('./routes/chat');
 const initializePassport = require('./routes/passport-config');
 const Account = require('./models/account');
 
@@ -76,6 +77,7 @@ db.once('open', () => {
     console.log('Connected!');
 });
 
+app.use('/chat', chatRouter);
 app.use('/application', applicationRouter);
 app.use('/recover', recoverRouter);
 app.use('/verify', verifyRouter);
