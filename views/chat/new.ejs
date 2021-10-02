@@ -1,0 +1,31 @@
+<script>
+    document.getElementById("profile-chat").classList.add('active');
+</script>
+<div class="container flex-grow-1 d-flex flex-column p-3">
+    <h2>New Message</h2>
+    <%- include("../layouts/_flash_message") %> 
+    <form method="POST" action="/chat/new" class="needs-validation flex-grow-1 d-flex flex-column" novalidate>
+        <div class="form-floating mb-3">
+            <input  class="form-control mb-2 shadow-sm" type="text" name="recipient" placeholder="Recipient" required>
+            <div class="valid-feedback"></div>
+            <div class="invalid-feedback">Please enter recipient(s).</div>
+            <label class="form-label text-secondary" for="recipient"><small>Recipient</small></label>
+        </div>
+
+        <div class="flex-grow-1"></div>
+        
+        <div class="row">
+            <div class="col">
+                <div class="form-floating">
+                    <textarea class="form-control shadow-sm dynamic-textarea" name="message" placeholder="Message" required></textarea>
+                    <div class="valid-feedback"></div>
+                    <div class="invalid-feedback">Please enter message.</div>
+                    <label class="form-label text-secondary" for="details"><small>Message</small></label>
+                </div>
+            </div>
+            <div class="col-auto d-flex align-items-end">
+                <button class="btn btn-dark"><em class="bi bi-forward-fill lg-icon"></em></button>
+            </div>
+        </div>
+    </form>
+</div>

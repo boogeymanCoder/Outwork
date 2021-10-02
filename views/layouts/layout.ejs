@@ -108,69 +108,72 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
-        <div class="container-fluid">
-            <!-- Brand -->
-            <a class="navbar-brand animate__animated animate__tada" href="/"><strong>Taskme</strong></a>
-        
-            <!-- Toggler/collapsibe Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item animate__animated animate__flipInX d-none" id="nav-profile">
-                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <em class="bi bi-person-fill lg-icon"></em> Profile
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="/profile" id="profile-timeline">Timeline</a></li>
-                            <li><a class="dropdown-item disabled" href="#">Contacts</a></li>
-                            <li><a class="dropdown-item disabled" href="#">Mail</a></li>
-                            <li><a class="dropdown-item disabled" href="#">Invitation</a></li>
-                            <li><a class="dropdown-item disabled" href="#">Notification</a></li>
-                            <li><a class="dropdown-item disabled" href="#">Logout</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item animate__animated animate__flipInX">
-                        <a class="nav-link" href="/public/insights">
-                            <em class="bi bi-binoculars-fill lg-icon"></em> Insights
-                        </a>
-                    </li>
-                    <li class="nav-item animate__animated animate__flipInX">
-                        <a class="nav-link disabled" href="#">
-                            <em class="bi bi-headset lg-icon"></em> Support
-                        </a>
-                    </li>
-                    <li class="nav-item animate__animated animate__flipInX">
-                        <a class="nav-link disabled" id="installer" href="javascript:install()">
-                            <em class="bi bi-download lg-icon"></em></em> Install
-                        </a>
-                    </li>
-                    <li class="nav-item animate__animated animate__flipInX" id="nav-login">
-                        <a class="nav-link" href="/login">
-                            <em class="bi bi-door-closed-fill lg-icon"></em> Login
-                        </a>
-                    </li>
-                    <li class="nav-item animate__animated animate__flipInX">
-                        <a class="nav-link disabled" href="#">
-                            <em class="bi bi-menu-button-wide-fill lg-icon"></em> More
-                        </a>
-                    </li>
-                </ul>
+    <!-- change alignments with flex -->
+    <div class="container-fluid d-flex flex-column p-0" style="min-height: 100vh">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+            <div class="container-fluid">
+                <!-- Brand -->
+                <a class="navbar-brand animate__animated animate__tada" href="/"><strong>Taskme</strong></a>
+            
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item animate__animated animate__flipInX d-none" id="nav-profile">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <em class="bi bi-person-fill lg-icon"></em> Profile
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                                <li><a class="dropdown-item" href="/profile" id="profile-timeline">Timeline</a></li>
+                                <li><a class="dropdown-item disabled" href="#">Contacts</a></li>
+                                <li><a class="dropdown-item" href="/chat" id="profile-chat">Chat</a></li>
+                                <li><a class="dropdown-item disabled" href="#">Invitation</a></li>
+                                <li><a class="dropdown-item disabled" href="#">Notification</a></li>
+                                <li><a class="dropdown-item disabled" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item animate__animated animate__flipInX">
+                            <a class="nav-link" href="/public/insights">
+                                <em class="bi bi-binoculars-fill lg-icon"></em> Insights
+                            </a>
+                        </li>
+                        <li class="nav-item animate__animated animate__flipInX">
+                            <a class="nav-link disabled" href="#">
+                                <em class="bi bi-headset lg-icon"></em> Support
+                            </a>
+                        </li>
+                        <li class="nav-item animate__animated animate__flipInX">
+                            <a class="nav-link disabled" id="installer" href="javascript:install()">
+                                <em class="bi bi-download lg-icon"></em></em> Install
+                            </a>
+                        </li>
+                        <li class="nav-item animate__animated animate__flipInX" id="nav-login">
+                            <a class="nav-link" href="/login">
+                                <em class="bi bi-door-closed-fill lg-icon"></em> Login
+                            </a>
+                        </li>
+                        <li class="nav-item animate__animated animate__flipInX">
+                            <a class="nav-link disabled" href="#">
+                                <em class="bi bi-menu-button-wide-fill lg-icon"></em> More
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <% if(locals.auth === true || locals.auth === undefined) { %>
-        <%- include("./_hide_nav_login") %>
-        <%- include("./_show_nav_profile") %>
-    <% } %>
-    
-    <%- body %>
-    
-    <%- include('./_footer') %>
+        </nav>
+        <% if(locals.auth === true || locals.auth === undefined) { %>
+            <%- include("./_hide_nav_login") %>
+            <%- include("./_show_nav_profile") %>
+        <% } %>
+        
+        <%- body %>
+        
+        <%- include('./_footer') %>
+    </div>
     <!-- initialized dynamic text areas -->
     <%- include("./data_fields/_textarea_setup") %>
     

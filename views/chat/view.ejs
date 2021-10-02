@@ -1,0 +1,35 @@
+<script>
+    document.getElementById("profile-chat").classList.add('active');
+</script>
+<div class="container flex-grow-1 d-flex flex-column p-3">
+    <h2><%= recipient %></h2>
+    <%- include("../layouts/_flash_message") %>
+    <div class="flex-grow-1">
+        <% for (message of chat.messages) { %> 
+            <div class="container-fluid p-2">
+                <% if (message.sender === recipient) { %>
+                    <span class="shadow-sm bg-dark text-light py-2 px-5 m-2 rounded-end rounded-bottom float-start"><%= message.message %></span>
+                <% } else { %>
+                    <span class="shadow-sm bg-dark text-light py-2 px-5 m-2 rounded-start rounded-bottom float-end"><%= message.message %></span>
+                <% } %> 
+                <br/>
+                <br/>
+            </div>
+        <% } %>
+    </div>
+    <form method="POST" action="/chat/send/<%= chat.id %>/<%= recipient %> " class="needs-validation " novalidate>
+        <div class="row mt-3">
+            <div class="col">
+                <div class="form-floating">
+                    <textarea class="form-control shadow-sm dynamic-textarea" name="message" placeholder="Message" required></textarea>
+                    <div class="valid-feedback"></div>
+                    <div class="invalid-feedback">Please enter message.</div>
+                    <label class="form-label text-secondary" for="details"><small>Message</small></label>
+                </div>
+            </div>
+            <div class="col-auto d-flex align-items-end">
+                <button class="btn btn-dark"><em class="bi bi-forward-fill lg-icon"></em></button>
+            </div>
+        </div>
+    </form>
+</div>
