@@ -1,0 +1,29 @@
+body {
+    font: 400 15px/1.8 "Lato", sans-serif;
+}
+
+.parallax {
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: aliceblue;
+    opacity: 0.65;
+}
+
+.title {
+    letter-spacing: 10px;
+}
+
+.lg-icon {
+    font-size: 1.5rem;
+}
+
+.navbar-nav > li > .dropdown-menu .dropdown-item:active {
+    background-color: black;
+}
+
+.dropdown-item.active{
+    background-color: black;
+}

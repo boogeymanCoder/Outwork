@@ -68,6 +68,7 @@ app.use(passport.session());
 app.use(methodOverride('_method'));
 
 
+
 mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', (err) => {
@@ -101,9 +102,9 @@ app.use(function(req, res) {
 });
    
 // Handle 500
-// app.use(function(error, req, res, next) {
-//     res.status(500);
-//     res.render('500');
-// });
+app.use(function(error, req, res, next) {
+    res.status(500);
+    res.render('500');
+});
 
 app.listen(process.env.PORT || 3000);
