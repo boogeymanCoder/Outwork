@@ -2,7 +2,7 @@
     <%- include("./_application_body") %>
     <div class="card-footer">
         <form method="POST" action="/job/accept/<%= application.id %>?_method=PATCH">
-            <input type="submit" class="btn btn-dark float-end" value="Accept">
+            <button type="submit" class="btn float-end"><em class="bi bi-person-check-fill lg-icon"></em></button>
         </form>
     </div>
 </div>

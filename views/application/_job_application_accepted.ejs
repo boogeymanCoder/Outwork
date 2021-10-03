@@ -2,7 +2,7 @@
     <%- include("./_application_body") %>
     <div class="card-footer">
         <form method="POST" action="/job/cancel/<%= application.id %>?_method=DELETE">
-            <input type="submit" class="btn btn-dark float-end" value="Kick">
+            <button type="submit" class="btn float-end"><em class="bi bi-x-lg lg-icon"></em></button>
         </form>
     </div>
 </div>
