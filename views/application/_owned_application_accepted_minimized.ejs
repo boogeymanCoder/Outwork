@@ -1,11 +1,23 @@
-<div class="row align-items-end">
-    <div class="col">
-        <p style="white-space: pre-wrap;"><%= application.message %><em class="float-end"><%= application.time.toLocaleString() %></em></p>
+<%- include("./_application_status") %>
+<form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
+    <div class="row p-0 m-0">
+        <div class="col-auto py-0">
+            <p class="text-truncate mb-0">
+                <%= application.message %>
+            </p>
+        </div>
+        <div class="col-lg p-0 m-0">
+            
+            <div class="row">
+                <div class="col">
+                    <em class="float-end">
+                        <%= application.time.toLocaleString() %>
+                    </em>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn py-0 px-2 float-end"><em class="bi bi-x-lg"></em></button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-auto">
-        <form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
-            <input type="submit" class="btn btn-dark float-end m-2" value="Quit">
-        </form>
-    </div>
-</div>
-
+</form>

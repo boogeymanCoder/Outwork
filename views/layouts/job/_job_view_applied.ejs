@@ -2,10 +2,12 @@
     <%- include("./job_view/_job_header") %>
     <%- include("./job_view/_job_body") %>
     <div class="card-footer">
-        <% if (application.accepted) { %>
-            <%- include("../../application/_owned_application_accepted_minimized", { application: application }) %>
-        <% } else { %>
-            <%- include("../../application/_owned_application_minimized", { application: application }) %>
-        <% } %>
+        <div class="row">
+            <% if (application.accepted) { %>
+                <%- include("../../application/_owned_application_accepted_minimized", { application: application }) %>
+            <% } else { %>
+                <%- include("../../application/_owned_application_minimized", { application: application }) %>
+            <% } %>
+        </div>
     </div>
 </div>

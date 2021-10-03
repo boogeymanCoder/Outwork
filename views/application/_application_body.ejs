@@ -1,5 +1,6 @@
 <div class="card-body">
-    <blockquote class="blockquote text-center" style="white-space: pre-wrap;"><%= application.message %></blockquote>
+    <%- include('./_application_status') %> 
+    <blockquote class="blockquote" style="white-space: pre-wrap;"><%= application.message %></blockquote>
     <footer class="blockquote-footer text-end ">
         @<a href="/profile/view/<%= application.employee %>" class="text-secondary"><%= application.employee %></a>
         (<%= application.time.toLocaleString() %>)

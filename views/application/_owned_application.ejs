@@ -1,9 +1,9 @@
 <div class="card mb-3 mt-3 animate__animated animate__bounceInUp shadow-sm">
     <%- include("./_application_body") %>
     <div class="card-footer">
+        <button type="button" class="btn float-end py-0 px-2" onclick="updateApplication('<%= application.id %>', `<%= application.message %>`)" data-bs-toggle="modal" data-bs-target="#applicationEditModal"><em class="bi bi-pencil-square lg-icon"></em></button>
         <form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
-            <input type="submit" class="btn btn-dark float-end" value="Cancel">
+            <button type="submit" class="btn float-end py-0 px-2"><em class="bi bi-trash-fill lg-icon"></em></button>
         </form>
-        <input type="button" class="btn btn-dark me-2 float-end" value="Edit" onclick="updateApplication('<%= application.id %>', `<%= application.message %>`)" data-bs-toggle="modal" data-bs-target="#applicationEditModal">
     </div>
 </div>

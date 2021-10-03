@@ -1,17 +1,24 @@
-<div class="row align-items-end">
-    <div class="col">
-        <p style="white-space: pre-wrap;"><%= application.message %><em class="float-end"><%= application.time.toLocaleString() %></em></p>
-    </div>
-    <div class="col-auto">
-        <div class="row">
-            <div class="col-auto p-0">
-                <input type="button" class="btn btn-dark my-2 mx-1" value="Edit" onclick="updateApplication('<%= application.id %>', `<%= application.message %>`)" data-bs-toggle="modal" data-bs-target="#applicationEditModal">
-            </div>
-            <div class="col-auto p-0">
-                <form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
-                    <input type="submit" class="btn btn-dark my-2 mx-1" value="Cancel">
-                </form>
+<%- include("./_application_status") %>
+<form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
+    <div class="row p-0 m-0">
+        <div class="col-lg-auto py-0">
+            <p class="text-truncate mb-0">
+                <%= application.message %>
+            </p>
+        </div>
+        <div class="col-lg p-0 m-0">
+            <div class="row">
+                <div class="col">
+                    <em class="float-end">
+                        <%= application.time.toLocaleString() %>
+                    </em>
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn float-end py-0 px-2" onclick="updateApplication('<%= application.id %>', `<%= application.message %>`)" data-bs-toggle="modal" data-bs-target="#applicationEditModal"><em
+                    class="bi bi-pencil-square"></em></button>
+                    <button type="submit" class="btn float-end py-0 px-2"><em class="bi bi-trash-fill"></em></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>
