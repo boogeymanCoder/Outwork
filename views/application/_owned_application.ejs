@@ -2,7 +2,7 @@
     <%- include("./_application_body") %>
     <div class="card-footer">
         <button type="button" class="btn float-end py-0 px-2" onclick="updateApplication('<%= application.id %>', `<%= application.message %>`)" data-bs-toggle="modal" data-bs-target="#applicationEditModal"><em class="bi bi-pencil-square lg-icon"></em></button>
-        <form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
+        <form method="POST" class="confirmable" action="/application/cancel/<%= application.id %>?_method=DELETE">
             <button type="submit" class="btn float-end py-0 px-2"><em class="bi bi-trash-fill lg-icon"></em></button>
         </form>
     </div>

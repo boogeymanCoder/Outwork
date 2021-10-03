@@ -1,7 +1,7 @@
 <div class="card mb-3 mt-3 animate__animated animate__bounceInUp shadow-sm">
     <%- include("./_application_body") %>
     <div class="card-footer">
-        <form method="POST" action="/application/cancel/<%= application.id %>?_method=DELETE">
+        <form method="POST" class="confirmable" action="/application/cancel/<%= application.id %>?_method=DELETE">
             <button type="submit" class="btn py-0 px-2 float-end"><em class="bi bi-x-lg lg-icon"></em></button>
         </form>
     </div>

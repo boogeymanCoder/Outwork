@@ -1,0 +1,50 @@
+<script>
+  function confirmModalShow() {
+    return new Promise((resolve, reject) => {
+        const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+        confirmModal.show();
+
+        confirmModalContinue = document.getElementById('confirmModalContinue');
+        confirmModalContinue.addEventListener('click', () => resolve(true));
+
+        confirmModalCancel = document.getElementById('confirmModalCancel');
+        confirmModalCancel.addEventListener('click', () => resolve(false));
+      });
+  }
+
+  async function confirmModal(e) {
+    const form = this;
+    e.preventDefault();
+    
+    const confirm = await confirmModalShow();
+    if (confirm === true) {
+      form.submit();
+    }
+  }
+
+  function setupConfirmables() {
+    const confirmables = document.getElementsByClassName('confirmable');
+
+    for (var confirmable of confirmables) {
+      confirmable.onsubmit = confirmModal;
+    }
+  }
+  setupConfirmables()
+</script>
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-danger" id="confirmModalLabel">Warning</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          This operation cannot be undone. Do you want to continue?
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="confirmModalContinue" class="btn btn-danger">Continue</button>
+          <button type="button" id="confirmModalCancel" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
