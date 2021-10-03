@@ -11,20 +11,19 @@
         </div>
     </div>
     <%- include("../layouts/_flash_message") %> 
-        <% if (locals.chats.length === 0) { %>
-            <div class="flex-grow-1 d-flex align-items-center justify-content-center">
-                <h3 class="text-secondary text-center">No Messages Yet</h3>
-            </div>
-        <% } else {%>
-            <div class="flex-grow-1">
-                <% for (chat of chats) { %> 
-                    <% for (member of chat.members) { %>
-                        <% if (member !== username) { %>
-                            <%- include('./_chat_preview.ejs', { recipient: member, chat: chat }) %>
-                        <% } %>  
-                    <% } %>
+    <% if (locals.chats.length === 0) { %>
+        <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+            <h3 class="text-secondary text-center">No Messages Yet</h3>
+        </div>
+    <% } else {%>
+        <div class="flex-grow-1">
+            <% for (chat of chats) { %> 
+                <% for (member of chat.members) { %>
+                    <% if (member !== username) { %>
+                        <%- include('./_chat_preview.ejs', { recipient: member, chat: chat }) %>
+                    <% } %>  
                 <% } %>
-            </div>
-        <% } %>
-    </div>
+            <% } %>
+        </div>
+    <% } %>
 </div>

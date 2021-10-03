@@ -1,16 +1,21 @@
 <script>
     document.getElementById("profile-chat").classList.add('active');
 </script>
-<div class="container flex-grow-1 d-flex flex-column p-3">
-    <h2><%= recipient %></h2>
+<div class="container flex-grow-1 d-flex flex-column p-0">
+    <div class="position-sticky bg-white py-2 px-5 my-2 rounded-bottom rounded-end" style="opacity: 0">
+        <h2 class="text-white m-0" style="opacity: 0"><%= recipient %></h2>
+    </div>
+    <div class="container-sm position-fixed bg-white py-2 pe-5 mt-2 rounded-bottom rounded-end shadow-sm">
+        <h2 class="m-0"><%= recipient %></h2>
+    </div>
     <%- include("../layouts/_flash_message") %>
-    <div class="flex-grow-1">
+    <div class="flex-grow-1 mb-4">
         <% for (message of chat.messages) { %> 
             <div class="container-fluid p-2">
                 <% if (message.sender === recipient) { %>
-                    <span class="shadow-sm bg-dark text-light py-2 px-5 m-2 rounded-end rounded-bottom float-start"><%= message.message %></span>
+                    <span class="shadow-sm bg-dark text-light py-2 px-5 m-2 rounded-end rounded-bottom float-start" style="white-space: pre-wrap;"><%= message.message %></span>
                 <% } else { %>
-                    <span class="shadow-sm bg-dark text-light py-2 px-5 m-2 rounded-start rounded-bottom float-end"><%= message.message %></span>
+                    <span class="shadow-sm bg-dark text-light py-2 px-5 m-2 rounded-start rounded-bottom float-end" style="white-space: pre-wrap;"><%= message.message %></span>
                 <% } %> 
                 <br/>
                 <br/>
@@ -18,7 +23,7 @@
         <% } %>
     </div>
     <form method="POST" action="/chat/send/<%= chat.id %>/<%= recipient %> " class="needs-validation " novalidate>
-        <div class="row mt-3">
+        <div class="row fixed-bottom px-5 pt-2 bg-light shadow-lg">
             <div class="col">
                 <div class="form-floating">
                     <textarea class="form-control shadow-sm dynamic-textarea" name="message" placeholder="Message" required></textarea>
@@ -26,9 +31,7 @@
                     <div class="invalid-feedback">Please enter message.</div>
                     <label class="form-label text-secondary" for="details"><small>Message</small></label>
                 </div>
-            </div>
-            <div class="col-auto d-flex align-items-end">
-                <button class="btn btn-lg btn-dark">SEND</button>
+                <button class="btn btn-dark my-2 float-end">SEND</button>
             </div>
         </div>
     </form>
